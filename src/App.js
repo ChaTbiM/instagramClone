@@ -2,19 +2,15 @@ import React from "react";
 import Home from "./scenes/Home";
 import "./App.css";
 
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+import MainMenu from "./components/Navigations/MainMenu/MainMenu";
 
 function App() {
   return (
     <Router>
       {/* Navigation Component*/}
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">home</Link>
-          </li>
-        </ul>
-      </nav>
+      <MainMenu />
       {/* Pages */}
       <Switch>
         <Route exact path="/">
