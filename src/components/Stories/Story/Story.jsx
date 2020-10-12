@@ -1,14 +1,14 @@
 import React from "react";
-import { Story } from "./style";
+import { StoryContainer } from "./style";
 
-function StoryListItem() {
+function Story() {
   const profileImage = require("../../../assets/profile.jpg");
   return (
-    <Story>
+    <StoryContainer>
       <img src={profileImage} alt="story image" className="story__image" />
       <p className="person__name">name...</p>
-    </Story>
+    </StoryContainer>
   );
 }
 
-export default StoryListItem;
+export default Story;

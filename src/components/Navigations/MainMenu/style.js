@@ -9,7 +9,7 @@ const MainMenuContainer = styled.nav`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 2rem;
+    // padding: 0 2rem;
     margin: 1rem 0;
   }
 

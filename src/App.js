@@ -1,5 +1,6 @@
 import React from "react";
 import Home from "./scenes/Home";
+import "./reset.css";
 import "./App.css";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
