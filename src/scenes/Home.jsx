@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Posts from "../components/Posts/Posts/Posts";
 import Stories from "../components/Stories/Stories/Stories";
 
 function Home() {
@@ -13,10 +14,7 @@ function Home() {
     // - suggestions */}
       <div className="content">
         <Stories />
-        <div>post</div>
-        <div>post</div>
-        <div>post</div>
-        <div>post</div>
+        <Posts />
       </div>
 
       <div className="sidebar">

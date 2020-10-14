@@ -5,7 +5,7 @@ function Story() {
   const profileImage = require("../../../assets/profile.jpg");
   return (
     <StoryContainer>
-      <img src={profileImage} alt="story image" className="story__image" />
+      <img src={profileImage} alt="story" className="story__image" />
       <p className="person__name">name...</p>
     </StoryContainer>
   );

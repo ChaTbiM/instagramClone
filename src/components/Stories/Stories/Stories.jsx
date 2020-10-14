@@ -6,7 +6,7 @@ function Stories() {
   const temp = Array.from(Array(15).keys());
 
   const renderStories = () => {
-    return temp.map((el) => {
+    return temp.map(() => {
       return <Story />;
     });
   };
