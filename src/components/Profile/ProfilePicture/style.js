@@ -1,10 +1,9 @@
 const { default: styled } = require("styled-components");
 
-const ProfilePictureContainer = styled.div`
+const StyledProfilePicture = styled.div`
   width: ${(props) => props.width};
   text-align: center;
   display: inline-block;
-  margin: 1rem;
   .picture {
     display: inline-block;
     width: ${(props) => props.width};
@@ -29,4 +28,4 @@ const ProfilePictureContainer = styled.div`
   }
 `;
 
-export { ProfilePictureContainer };
+export { StyledProfilePicture };

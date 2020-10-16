@@ -1,9 +1,9 @@
 const { default: styled } = require("styled-components");
 
-const StoryContainer = styled.div`
+const StyledStory = styled.div`
   width: 66px;
   text-align: center;
-  margin: 1rem;
+  margin: 1rem 0;
   .story__image {
     display: inline-block;
     width: 66px;
@@ -28,4 +28,4 @@ const StoryContainer = styled.div`
   }
 `;
 
-export { StoryContainer };
+export { StyledStory };

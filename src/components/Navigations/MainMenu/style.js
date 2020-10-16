@@ -1,16 +1,21 @@
 import styled from "styled-components";
 
-const MainMenuContainer = styled.nav`
-  max-width: 1000px;
-  margin: 0 auto;
+const StyledMainMenu = styled.nav`
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  // display: none;
   background-color: white;
+  border-bottom: solid 1px #eee;
 
   .list {
+    margin: 1rem auto;
+
+    max-width: 1000px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    // padding: 0 2rem;
-    margin: 1rem 0;
   }
 
   .list__item {
@@ -47,4 +52,4 @@ const MainMenuContainer = styled.nav`
   }
 `;
 
-export { MainMenuContainer };
+export { StyledMainMenu };

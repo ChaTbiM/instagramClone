@@ -1,5 +1,5 @@
 import React from "react";
-import { MainMenuContainer } from "./style";
+import { StyledMainMenu } from "./style";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -14,7 +14,7 @@ import { Link } from "react-router-dom";
 
 function MainMenu() {
   return (
-    <MainMenuContainer>
+    <StyledMainMenu>
       <ul className="list">
         <li className="list__item logo">instagram</li>
         <li className="list__item search__bar">
@@ -39,7 +39,7 @@ function MainMenu() {
           <FontAwesomeIcon className="list__icons__item" icon={faUserCog} />
         </div>
       </ul>
-    </MainMenuContainer>
+    </StyledMainMenu>
   );
 }
 

@@ -1,13 +1,13 @@
 import React from "react";
-import { StoryContainer } from "./style";
+import { StyledStory } from "./style";
 
 function Story() {
   const profileImage = require("../../../assets/profile.jpg");
   return (
-    <StoryContainer>
+    <StyledStory>
       <img src={profileImage} alt="story" className="story__image" />
       <p className="person__name">name...</p>
-    </StoryContainer>
+    </StyledStory>
   );
 }
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { ProfilePictureContainer } from "./style";
+import { StyledProfilePicture } from "./style";
 
 function ProfilePicture(props) {
   const profileImage = require("../../../assets/profile.jpg");
@@ -7,9 +7,9 @@ function ProfilePicture(props) {
   const width = props.width === "small" ? "42px" : "66px";
 
   return (
-    <ProfilePictureContainer width={width}>
+    <StyledProfilePicture width={width}>
       <img src={profileImage} alt="story" className="picture" />
-    </ProfilePictureContainer>
+    </StyledProfilePicture>
   );
 }
 

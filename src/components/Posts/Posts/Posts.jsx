@@ -1,7 +1,6 @@
 import React from "react";
-import ProfilePicture from "../../Profile/ProfilePicture/ProfilePicture";
 import Post from "../Post/Post";
-import { PostsContainer } from "./style";
+import { StyledPosts } from "./style";
 
 function Posts() {
   const temp = Array.from(Array(15).keys());
@@ -12,7 +11,7 @@ function Posts() {
     });
   };
 
-  return <PostsContainer>{renderPosts()}</PostsContainer>;
+  return <StyledPosts>{renderPosts()}</StyledPosts>;
 }
 
 export default Posts;

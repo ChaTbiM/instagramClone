@@ -1,6 +1,6 @@
 import React from "react";
 import ProfilePicture from "../../Profile/ProfilePicture/ProfilePicture";
-import { PostContainer } from "./style";
+import { StyledPost } from "./style";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -24,7 +24,7 @@ function Post() {
   };
   const PostPicture = require("../../../assets/profile.jpg");
   return (
-    <PostContainer>
+    <StyledPost>
       <div className="post__header">
         <ProfilePicture width="small" />
         <p className="person__name">name ..</p>
@@ -77,7 +77,7 @@ function Post() {
           list of comments
 
       */}
-    </PostContainer>
+    </StyledPost>
   );
 }
 

@@ -1,6 +1,6 @@
 const { default: styled } = require("styled-components");
 
-const PostContainer = styled.div`
+const StyledPost = styled.div`
   margin-top: 4rem;
 
   border: solid 1px #eee;
@@ -85,4 +85,4 @@ const PostContainer = styled.div`
   }
 `;
 
-export { PostContainer };
+export { StyledPost };

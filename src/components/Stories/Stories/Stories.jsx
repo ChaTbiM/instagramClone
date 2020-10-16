@@ -1,6 +1,6 @@
 import React from "react";
 import Story from "../Story/Story";
-import { StoriesContainer } from "./style";
+import { StyledStories } from "./style";
 
 function Stories() {
   const temp = Array.from(Array(15).keys());
@@ -11,7 +11,7 @@ function Stories() {
     });
   };
 
-  return <StoriesContainer>{renderStories()}</StoriesContainer>;
+  return <StyledStories>{renderStories()}</StyledStories>;
 }
 
 export default Stories;
