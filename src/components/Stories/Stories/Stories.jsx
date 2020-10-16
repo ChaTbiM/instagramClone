@@ -1,6 +1,6 @@
 import React from "react";
 import Story from "../Story/Story";
-import { StyledStories } from "./style";
+import { StyledStories } from "./StyledStories";
 
 function Stories() {
   const temp = Array.from(Array(15).keys());

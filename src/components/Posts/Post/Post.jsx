@@ -1,6 +1,6 @@
 import React from "react";
 import ProfilePicture from "../../Profile/ProfilePicture/ProfilePicture";
-import { StyledPost } from "./style";
+import { StyledPost } from "./StyledPost";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {

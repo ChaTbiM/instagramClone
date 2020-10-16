@@ -1,5 +1,5 @@
 import React from "react";
-import { StyledMainMenu } from "./style";
+import { StyledMainMenu } from "./StyledMainMenu";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {

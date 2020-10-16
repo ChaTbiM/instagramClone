@@ -1,7 +1,7 @@
 import React from "react";
 import ProfilePicture from "../Profile/ProfilePicture/ProfilePicture";
 import Suggestions from "../Suggestions/Suggestions/Suggestions";
-import { StyledSideBar } from "./style";
+import { StyledSideBar } from "./StyledSideBar";
 
 function SideBar() {
   return (

@@ -1,13 +1,14 @@
 import React from "react";
 import ProfilePicture from "../../Profile/ProfilePicture/ProfilePicture";
-import { StyledSuggestion } from "./style";
+import { StyledSuggestion } from "./StyledSuggestion";
 
 function Suggestion() {
   return (
     <StyledSuggestion>
       <ProfilePicture />
       <div className="suggested__profiles__text">
-        <p>name</p>
+        {/* <p>name</p> */}
+        <p> {compose()} </p>
         <p>new to instagram</p>
       </div>
       <p className="follow">follow</p>

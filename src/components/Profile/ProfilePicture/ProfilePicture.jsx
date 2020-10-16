@@ -1,5 +1,5 @@
 import React from "react";
-import { StyledProfilePicture } from "./style";
+import { StyledProfilePicture } from "./StyledProfilePicture";
 
 function ProfilePicture(props) {
   const profileImage = require("../../../assets/profile.jpg");

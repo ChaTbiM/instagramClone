@@ -5,7 +5,6 @@ const StyledMainMenu = styled.nav`
   top: 0;
   right: 0;
   left: 0;
-  // display: none;
   background-color: white;
   border-bottom: solid 1px #eee;
 

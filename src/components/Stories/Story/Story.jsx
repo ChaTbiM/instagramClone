@@ -1,5 +1,5 @@
 import React from "react";
-import { StyledStory } from "./style";
+import { StyledStory } from "./StyledStory";
 
 function Story() {
   const profileImage = require("../../../assets/profile.jpg");

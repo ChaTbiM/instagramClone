@@ -1,6 +1,6 @@
 import React from "react";
 import Post from "../Post/Post";
-import { StyledPosts } from "./style";
+import { StyledPosts } from "./StyledPosts";
 
 function Posts() {
   const temp = Array.from(Array(15).keys());
