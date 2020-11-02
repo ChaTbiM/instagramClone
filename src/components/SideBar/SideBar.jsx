@@ -6,7 +6,7 @@ import { StyledSideBar } from "./StyledSideBar";
 function SideBar() {
   return (
     <StyledSideBar>
-      <ProfilePicture />
+      <ProfilePicture size="large" />
       <Suggestions />
     </StyledSideBar>
   );

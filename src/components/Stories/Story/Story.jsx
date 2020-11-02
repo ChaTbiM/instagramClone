@@ -1,12 +1,16 @@
 import React from "react";
+import ProfilePicture from "../../Profile/ProfilePicture/ProfilePicture";
 import { StyledStory } from "./StyledStory";
 
-function Story() {
-  const profileImage = require("../../../assets/profile.jpg");
+function Story({number}) {
+
+
+  
+
   return (
-    <StyledStory>
-      <img src={profileImage} alt="story" className="story__image" />
-      <p className="person__name">name...</p>
+    <StyledStory >
+      <ProfilePicture size="large" isStory={true} />
+  <p className="person__name">{number}</p>
     </StyledStory>
   );
 }

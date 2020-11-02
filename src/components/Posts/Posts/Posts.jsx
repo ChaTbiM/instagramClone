@@ -6,8 +6,8 @@ function Posts() {
   const temp = Array.from(Array(15).keys());
 
   const renderPosts = () => {
-    return temp.map(() => {
-      return <Post />;
+    return temp.map((element,index) => {
+      return <Post key={`post-${index}`} />;
     });
   };
 

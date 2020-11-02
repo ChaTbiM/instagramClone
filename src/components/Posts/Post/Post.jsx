@@ -15,7 +15,7 @@ function Post() {
   const renderComments = () => {
     return temp.map((el, index) => {
       return (
-        <p className="post__comment">
+        <p key={`comment-${index}`} className="post__comment">
           <span className="post__comment__from">name..</span>
           <span className="post__comment__content">comment {index + 1}</span>
         </p>
@@ -26,7 +26,7 @@ function Post() {
   return (
     <StyledPost>
       <div className="post__header">
-        <ProfilePicture width="small" />
+        <ProfilePicture size="medium" />
         <p className="person__name">name ..</p>
       </div>
       <img src={PostPicture} alt="" className="post__picture" />

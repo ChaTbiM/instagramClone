@@ -7,11 +7,12 @@ const StyledMainMenu = styled.nav`
   left: 0;
   background-color: white;
   border-bottom: solid 1px #eee;
+  z-index: 100;
 
   .list {
     margin: 1rem auto;
 
-    max-width: 1000px;
+    max-width: 940px;
     display: flex;
     justify-content: space-between;
     align-items: center;
