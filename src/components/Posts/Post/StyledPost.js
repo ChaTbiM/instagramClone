@@ -1,7 +1,10 @@
 const { default: styled } = require("styled-components");
 
 const StyledPost = styled.div`
-  margin-top: 4rem;
+  :not(:first-of-type){
+
+    margin-top: 4.3rem;
+  }  
 
   border: solid 1px #eee;
 

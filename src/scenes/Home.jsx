@@ -22,6 +22,10 @@ function Home() {
 export default Home;
 
 const HomeContainer = styled.div`
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+
   display: flex;
   justify-content: space-between;
   max-width: 940px;
@@ -29,7 +33,7 @@ const HomeContainer = styled.div`
   padding-top: 6.4rem;
 
   .content {
-    max-width:615px;
+    max-width: 615px;
   }
 
   .sidebar {
@@ -40,15 +44,14 @@ const HomeContainer = styled.div`
   @media screen and (max-width: 999px) {
     justify-content: center;
 
-    
     .sidebar {
       display: none;
     }
   }
 
-  @media screen and (max-width:615px){
-    .content{
-      width:100%;
+  @media screen and (max-width: 615px) {
+    .content {
+      width: 100%;
     }
   }
 `;

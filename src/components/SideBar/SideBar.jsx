@@ -6,7 +6,16 @@ import { StyledSideBar } from "./StyledSideBar";
 function SideBar() {
   return (
     <StyledSideBar>
-      <ProfilePicture size="large" />
+      <div className="profile">
+        <ProfilePicture className="profile__picture" size="large" />
+        <div className="profile__text">
+          <p className="profile__text__username">chatbim</p>
+          <p className="profile__text__name">mustapha chatbi</p>
+        </div>
+        <a href="#" className="profile__switch">
+          Switch
+        </a>
+      </div>
       <Suggestions />
     </StyledSideBar>
   );
