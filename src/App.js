@@ -13,9 +13,9 @@ function App() {
       {/* Navigation Component*/}
       <MainMenu />
       {/* Pages */}
-      <Switch>
+      <Switch >
         <Route exact path="/">
-          <Home />
+          <Home/>
         </Route>
       </Switch>
     </Router>

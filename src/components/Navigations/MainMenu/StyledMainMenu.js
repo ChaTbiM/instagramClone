@@ -8,6 +8,7 @@ const StyledMainMenu = styled.nav`
   background-color: white;
   border-bottom: solid 1px #eee;
   z-index: 100;
+  padding:0 1rem;
 
   .list {
     margin: 1rem auto;
@@ -16,6 +17,13 @@ const StyledMainMenu = styled.nav`
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @media screen and (max-width:380px){
+
+      justify-content: center;
+    }
+
+    flex-wrap:wrap;
   }
 
   .list__item {
@@ -23,19 +31,28 @@ const StyledMainMenu = styled.nav`
   }
 
   .logo {
-    width: 100px;
+    // width: 100px;
     height: 30px;
     font-size: 20px;
+    text-align:center
   }
 
   .list__icons__item {
     margin-left: 1.5rem;
+
+    @media screen and (max-width:380px){
+      margin:0 .75rem;
+    }
+
     font-size: 1.5rem;
     color: gray;
   }
 
   .search__bar {
     position: relative;
+    @media  screen and (max-width:590px){
+      display:none;
+    }
   }
 
   .search__icon {

@@ -1,18 +1,12 @@
 const { default: styled } = require("styled-components");
-const {animated} = require("react-spring");
 
-// const StyledStories = styled(animated.div)`
+
 const StyledStories = styled.div`
-
-
-
-
   .storiesList{
     display: flex;
     overflow-x: hidden;
     padding: 20px 16px 10px;
     border: solid 1px #eee;
-    // margin:0 ;
   }
 
 
@@ -41,7 +35,6 @@ const StyledStories = styled.div`
 
   .scrollControl{
     position:absolute;
-    // z-index: 99555;
     right:0;
     left:0;
     top:0;

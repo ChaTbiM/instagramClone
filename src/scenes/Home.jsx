@@ -28,13 +28,27 @@ const HomeContainer = styled.div`
   margin: 0 auto;
   padding-top: 6.4rem;
 
-
   .content {
-    width: 65%;
+    max-width:615px;
   }
 
   .sidebar {
     width: 292px;
     margin-top: 1rem;
+  }
+
+  @media screen and (max-width: 999px) {
+    justify-content: center;
+
+    
+    .sidebar {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width:615px){
+    .content{
+      width:100%;
+    }
   }
 `;
