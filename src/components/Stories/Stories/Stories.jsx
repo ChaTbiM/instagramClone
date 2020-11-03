@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState, useMemo, useCallback } from "react";
+import React, { useRef, useEffect, useState, useCallback } from "react";
 import { useSpring, animated } from "react-spring";
 
 import Story from "../Story/Story";
@@ -13,14 +13,19 @@ function Stories() {
   const scrollRef = useRef(null);
 
   let [x, setX] = useState(0);
+  let [scrollWidthLimit, setScrollWidthLimit] = useState(0);
 
-  const temp = Array.from(Array(29).keys());
+  let [scrollRight, setScrollRight] = useState(true);
+  let [scrollLeft, setScrollLeft] = useState(false);
 
-  
+  const temp = Array.from(Array(28).keys());
+  const numberOfStories = temp.length;
+  const scrollStepWidth = 320;
+
   const renderStoriesFunction = (data) =>
-  data.map((el, index) => <Story number={index} key={`story-${index}`} />);
-  
-  const renderStories = useCallback(()=> renderStoriesFunction(temp),[temp]);
+    data.map((el, index) => <Story number={index} key={`story-${index}`} />);
+
+  const renderStories = useCallback(() => renderStoriesFunction(temp), [temp]);
 
   const easingFunction = (x) => {
     return 1 - Math.pow(1 - x, 3);
@@ -37,14 +42,40 @@ function Stories() {
     }
   );
 
-  const scrollRight = () => {
-    setX(x + 320);
+  useEffect(() => {
+    if (scrollRef) {
+      setScrollWidthLimit(numberOfStories * 60 - 20);
+    }
+  }, [scrollRef, numberOfStories]);
+
+  useEffect(() => {
+    if (scrollWidthLimit !== 0) {
+      if (x === scrollWidthLimit) setScrollRight(false);
+
+      if (x === 0) setScrollLeft(false);
+
+      if (x < scrollWidthLimit) setScrollRight(true);
+
+      if (x > 0) setScrollLeft(true);
+    }
+  }, [scrollWidthLimit, x]);
+
+  const scrollRightHandler = () => {
+    if (x + 320 <= scrollWidthLimit) {
+      setX(x + scrollStepWidth);
+    } else if (x + 320 > scrollWidthLimit) {
+      setX(x + (scrollWidthLimit - x));
+    }
   };
 
-  const scrollLeft = () => {
-    if (x >= 320) {
-      setX(x - 320);
+  const scrollLeftHandler = () => {
+    if (x - 320 >= 0) {
+      setX(x - scrollStepWidth);
+    } else if (x - 320 < 0) {
+      setX(x - (x - 0));
     }
+
+    if (x === 0) setScrollLeft(false);
   };
 
   const AnimatedStories = animated.div;
@@ -52,8 +83,21 @@ function Stories() {
   return (
     <StyledStories>
       <div className="scrollControl">
-          <FontAwesomeIcon icon={faArrowAltCircleLeft} onClick={scrollLeft} className="leftAngle" />
-          <FontAwesomeIcon icon={faArrowAltCircleRight} onClick={scrollRight} className="rightAngle" />
+        {scrollLeft && (
+          <FontAwesomeIcon
+            icon={faArrowAltCircleLeft}
+            onClick={scrollLeftHandler}
+            className="leftAngle"
+          />
+        )}
+
+        {scrollRight && (
+          <FontAwesomeIcon
+            icon={faArrowAltCircleRight}
+            onClick={scrollRightHandler}
+            className="rightAngle"
+          />
+        )}
       </div>
 
       <AnimatedStories

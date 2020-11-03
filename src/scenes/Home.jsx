@@ -34,7 +34,7 @@ const HomeContainer = styled.div`
 
   .sidebar {
     width: 292px;
-    margin-top: 1rem;
+    margin-top: 24px;
   }
 
   @media screen and (max-width: 999px) {

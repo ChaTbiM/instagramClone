@@ -29,9 +29,9 @@ export default function DisclaimerModal({ isOpen, children }) {
           left: 0,
           height: "100%",
           width: "100%",
-        //   padding: "100px",
+          //   padding: "100px",
           backgroundColor: "rgba(0,0,0,0.6)",
-          zIndex:99999999,
+          zIndex: 99999999,
         }}
       >
         <p
@@ -40,19 +40,25 @@ export default function DisclaimerModal({ isOpen, children }) {
             background: "white",
             padding: "50px",
             textAlign: "center",
-            position:"relative",
-            fontSize:"20px",
-            top:"50%",
-            left:"50%",
-            transform:"translate(-50%,-50%)"
+            position: "relative",
+            fontSize: "20px",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%,-50%)",
           }}
         >
-            <h1>DISCLAIMER : THIS IS FOR LEARNING PURPOSE ONLY !  </h1>
-            <p >P.S : not trying to overcome instagram ! &#128540; &#128514; </p>
-            <div style={{marginTop:"1rem"}}>
-
-                    {children}
-            </div>
+          <h1>DISCLAIMER : THIS IS FOR LEARNING PURPOSE ONLY ! </h1>
+          <p>
+            P.S : not trying to overcome instagram !{" "}
+            <span role="img" aria-label="jsx-a11y/accessible-emoji">
+              {" "}
+              &#128540;
+            </span>{" "}
+            <span aria-label="jsx-a11y/accessible-emoji" role="img">
+              &#128514;
+            </span>{" "}
+          </p>
+          <div style={{ marginTop: "1rem" }}>{children}</div>
         </p>
       </div>,
       // target container

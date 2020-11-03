@@ -7,10 +7,10 @@ const StyledStory = styled.div`
   // :first-of-type{
   //   margin-left:20px;
   // }
-  // :last-of-type {
-  //   padding-right: 20px;
-  //   margin-right:20px;
-  // }
+  :last-of-type {
+    padding-right: 20px;
+    margin-right:20px;
+  }
 
 
   .person__name {

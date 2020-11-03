@@ -14,7 +14,7 @@ import styled from "styled-components";
 
 function App() {
 
-  const [isModalOpen, setModalOpen] = useState(true);
+  const [isModalOpen, setModalOpen] = useState(false);
 
   const toggleModal = () => setModalOpen(!isModalOpen);
 
