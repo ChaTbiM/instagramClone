@@ -11,14 +11,13 @@ import {
 
 function Stories() {
   const scrollRef = useRef(null);
-
+  // I might be able to improve scrolling logic later --- using Steps Counter ( counting clicks ) and then scroll to one of scroll step width interval ---- example , srollStepWidth = 320 =>>> 320 , 640 , 960 ...
   let [x, setX] = useState(0);
   let [scrollWidthLimit, setScrollWidthLimit] = useState(0);
-
   let [scrollRight, setScrollRight] = useState(true);
   let [scrollLeft, setScrollLeft] = useState(false);
 
-  const temp = Array.from(Array(28).keys());
+  const temp = Array.from(Array(15).keys());
   const numberOfStories = temp.length;
   const scrollStepWidth = 320;
 
@@ -50,29 +49,47 @@ function Stories() {
 
   useEffect(() => {
     if (scrollWidthLimit !== 0) {
-      if (x === scrollWidthLimit) setScrollRight(false);
-
-      if (x === 0) setScrollLeft(false);
-
       if (x < scrollWidthLimit) setScrollRight(true);
 
       if (x > 0) setScrollLeft(true);
+
+      if (x === scrollWidthLimit) setScrollRight(false);
+
+      if (x === 0) setScrollLeft(false);
     }
+
+    console.log(x, scrollWidthLimit, "x and scrollWidthLimit");
   }, [scrollWidthLimit, x]);
 
   const scrollRightHandler = () => {
-    if (x + 320 <= scrollWidthLimit) {
+    if (x + scrollStepWidth <= scrollWidthLimit) {
       setX(x + scrollStepWidth);
-    } else if (x + 320 > scrollWidthLimit) {
+    } else if (x + scrollStepWidth > scrollWidthLimit) {
       setX(x + (scrollWidthLimit - x));
+    }
+
+    if (
+      (scrollWidthLimit - x) % scrollStepWidth !== 0 &&
+      scrollWidthLimit - x <= scrollStepWidth * 2
+    ) {
+      // setScrollRight(false);
+      setTimeout(
+        () => {
+          setX(x + (scrollWidthLimit - x));
+        },
+        500,
+        [setX, x, scrollWidthLimit]
+      );
     }
   };
 
   const scrollLeftHandler = () => {
-    if (x - 320 >= 0) {
+    if (x - scrollStepWidth >= 0) {
+      console.log("first");
       setX(x - scrollStepWidth);
-    } else if (x - 320 < 0) {
-      setX(x - (x - 0));
+    } else if (x - scrollStepWidth < 0) {
+      console.log("second");
+      setX(0);
     }
 
     if (x === 0) setScrollLeft(false);
