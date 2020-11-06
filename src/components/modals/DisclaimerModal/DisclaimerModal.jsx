@@ -34,7 +34,7 @@ export default function DisclaimerModal({ isOpen, children }) {
           zIndex: 99999999,
         }}
       >
-        <p
+        <div
           style={{
             width: "50%",
             background: "white",
@@ -49,17 +49,16 @@ export default function DisclaimerModal({ isOpen, children }) {
         >
           <h1>DISCLAIMER : THIS IS FOR LEARNING PURPOSE ONLY ! </h1>
           <p>
-            P.S : not trying to overcome instagram !{" "}
+            P.S : not trying to overcome instagram !
             <span role="img" aria-label="jsx-a11y/accessible-emoji">
-              {" "}
               &#128540;
-            </span>{" "}
+            </span>
             <span aria-label="jsx-a11y/accessible-emoji" role="img">
               &#128514;
-            </span>{" "}
+            </span>
           </p>
           <div style={{ marginTop: "1rem" }}>{children}</div>
-        </p>
+        </div>
       </div>,
       // target container
       el
