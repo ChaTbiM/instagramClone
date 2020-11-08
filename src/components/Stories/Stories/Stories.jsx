@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { useSpring, animated } from "react-spring";
 
 import Story from "../Story/Story";
@@ -10,7 +10,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 function Stories() {
-  const scrollRef = useRef(null);
+  // const scrollRef = useRef(null);
   // I might be able to improve scrolling logic later --- using Steps Counter ( counting clicks ) and then scroll to one of scroll step width interval ---- example , srollStepWidth = 320 =>>> 320 , 640 , 960 ...
   let [x, setX] = useState(0);
   let [scrollWidthLimit, setScrollWidthLimit] = useState(0);
@@ -42,10 +42,10 @@ function Stories() {
   );
 
   useEffect(() => {
-    if (scrollRef) {
-      setScrollWidthLimit(numberOfStories * 60 - 20);
-    }
-  }, [scrollRef, numberOfStories]);
+    // if (scrollRef) {
+    setScrollWidthLimit(numberOfStories * 60 - 20);
+    // }
+  }, [numberOfStories]);
 
   useEffect(() => {
     if (scrollWidthLimit !== 0) {
@@ -57,8 +57,6 @@ function Stories() {
 
       if (x === 0) setScrollLeft(false);
     }
-
-    console.log(x, scrollWidthLimit, "x and scrollWidthLimit");
   }, [scrollWidthLimit, x]);
 
   const scrollRightHandler = () => {
@@ -85,10 +83,8 @@ function Stories() {
 
   const scrollLeftHandler = () => {
     if (x - scrollStepWidth >= 0) {
-      console.log("first");
       setX(x - scrollStepWidth);
     } else if (x - scrollStepWidth < 0) {
-      console.log("second");
       setX(0);
     }
 
@@ -119,7 +115,7 @@ function Stories() {
 
       <AnimatedStories
         scrollLeft={scrollProps.scroll}
-        ref={scrollRef}
+        // ref={scrollRef}
         className="storiesList"
       >
         {renderStories()}

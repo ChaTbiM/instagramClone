@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { createPortal } from "react-dom";
-
+import { useModalState } from "../../hooks/modalContext";
 const modalRoot = document.getElementById("modal");
 
-export default function CreateModals({ children }) {
-  const [isOpen, setIsOpen] = useState(true); // I ll refactor this to context
-
+function CreatePortal({ children }) {
+  const { isOpen } = useModalState();
   const container = document.createElement("div");
 
   useEffect(() => {
@@ -18,3 +17,5 @@ export default function CreateModals({ children }) {
 
   return isOpen && createPortal(children, container);
 }
+
+export default React.memo(CreatePortal);

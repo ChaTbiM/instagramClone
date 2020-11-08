@@ -11,16 +11,18 @@ const StyledMainMenu = styled.nav`
   padding:0 1rem;
 
   .list {
-    margin: 1rem auto;
+    padding:10.5px 0;
+    margin: 0 auto;
+    
+ 
 
     max-width: 940px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    @media screen and (max-width:380px){
-
-      justify-content: center;
+    @media screen and (max-width:700px){
+      margin:0 .5rem;
     }
 
     flex-wrap:wrap;
@@ -36,15 +38,24 @@ const StyledMainMenu = styled.nav`
     font-size: 20px;
     text-align:center
   }
-
-  .list__icons__item {
-    margin-left: 1.5rem;
+  .list__icons{
+    display:inline-flex;
+    align-items:center;
+    justify-content:flex-between;
+    width:200px;
+   
+    box-sizing:border-box;
+  }
+  .list__icons__item 
+   {
+    margin-right: 20px;
 
     @media screen and (max-width:380px){
-      margin:0 .75rem;
+      // margin-left:2rem;
+      margin-right:10.5px;
     }
 
-    font-size: 1.5rem;
+    font-size: 22px;
     color: gray;
   }
 
@@ -67,6 +78,15 @@ const StyledMainMenu = styled.nav`
     // width: 200px;
     padding: 0.25rem 0.25rem 0.25rem 1.5rem;
   }
+
+  .clickable{
+    cursor:pointer;
+  }
+
+
+
+
+  
 `;
 
 export { StyledMainMenu };

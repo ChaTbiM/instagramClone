@@ -1,29 +1,27 @@
 import React from "react";
 import { StyledProfilePicture } from "./StyledProfilePicture";
 
-function ProfilePicture(props) {
+const ProfilePicture = React.forwardRef((props, ref) => {
   const profileImage = require("../../../assets/profile.jpg");
 
-  const { size, isStory } = props;
-  let width;
+  const { size, isStory, isActive } = props;
+  let width, outerMargin;
 
   if (size === "small") {
-    width = "22px";
+    width = 22;
   } else if (size === "medium") {
-    width = "32px";
+    width = 32;
   } else if (size === "large") {
-    width = "52px";
+    width = 52;
   } else if (size === "extraLarge") {
-    width = "150px";
+    width = 150;
   }
 
-  const renderStory = () => {
-    if (isStory) {
-      return <div className="story__wrapper"></div>;
-    }
-
-    return null;
-  };
+  // if (isActive) {
+  outerMargin = 6;
+  if (isStory) {
+    outerMargin = 8;
+  }
 
   // List of widths
   //   small 22
@@ -32,15 +30,22 @@ function ProfilePicture(props) {
   //   extraLarge 150
 
   return (
-    <StyledProfilePicture width={width}>
+    <StyledProfilePicture
+      isActive
+      isStory
+      outerMargin={outerMargin}
+      width={width}
+    >
       <img
+        ref={ref}
         src={profileImage}
         alt="story"
-        className={isStory ? "picture picture__inside" : "picture"}
+        className={isStory || isActive ? "picture picture__inside" : "picture"}
       />
-      {renderStory()}
+      {isActive && <div className="active__wrapper"></div>}
+      {isStory && <div className="story__wrapper"></div>}
     </StyledProfilePicture>
   );
-}
+});
 
 export default ProfilePicture;

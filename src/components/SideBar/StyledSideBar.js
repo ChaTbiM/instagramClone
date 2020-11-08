@@ -30,7 +30,6 @@ const StyledSideBar = styled.aside`
     margin-left:auto;
     color:#159EF7;
     text-decoration:none;
-
   }
 
 `;

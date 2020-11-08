@@ -1,17 +1,24 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useEffect, useRef } from "react";
+import { useModalDispatch } from "../../../hooks/modalContext";
+import useOnClickOutside from "../../../hooks/useOnClickOutside";
+import StyledProfileModal from "./StyledProfileModal";
 
-export default function Profile({ closeModal }) {
-  // setTimeout(() => {
-  //   closeModal();
-  // }, 4000);
+function ProfileModal({ left, top, profilePictureRef }) {
+  const dispatch = useModalDispatch();
+  const ref = useRef();
+
+  const closeModal = () => {
+    dispatch({ type: "CLOSE_MODAL" });
+  };
+
+  useOnClickOutside(ref, closeModal);
+
   return (
-    <StyledProfileModal className="unique">profile modal</StyledProfileModal>
+    <StyledProfileModal ref={ref} className="module" left={left} top={top}>
+      <button onClick={closeModal}> close </button>
+      <p>profile modal</p>
+    </StyledProfileModal>
   );
 }
 
-const StyledProfileModal = styled.div`
-  font-size: 30px;
-  position: absolute;
-  top: 300px;
-`;
+export default ProfileModal;

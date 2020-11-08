@@ -7,6 +7,7 @@ const StyledStories = styled.div`
     overflow-x: hidden;
     padding: 20px 16px 10px;
     border: solid 1px #eee;
+    background-color:white;
   }
 
 

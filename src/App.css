@@ -1,4 +1,8 @@
-.body {
+body {
   font-size: 14px;
-  background-color: #fafafa;
+  background-color: rgb(250, 250, 250);
+}
+
+* {
+  box-sizing: border-box;
 }

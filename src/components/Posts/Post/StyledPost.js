@@ -2,12 +2,12 @@ const { default: styled } = require("styled-components");
 
 const StyledPost = styled.div`
   :not(:first-of-type){
-
     margin-top: 4.3rem;
   }  
 
   border: solid 1px #eee;
-
+  background-color:white;
+  
   .post__header {
     display: flex;
     align-items: center;

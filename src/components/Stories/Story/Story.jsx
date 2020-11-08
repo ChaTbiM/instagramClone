@@ -2,15 +2,11 @@ import React from "react";
 import ProfilePicture from "../../Profile/ProfilePicture/ProfilePicture";
 import { StyledStory } from "./StyledStory";
 
-function Story({number}) {
-
-
-  
-
+function Story({ number }) {
   return (
-    <StyledStory >
+    <StyledStory>
       <ProfilePicture size="large" isStory={true} />
-  <p className="person__name">{number}</p>
+      <p className="person__name">{number}</p>
     </StyledStory>
   );
 }
