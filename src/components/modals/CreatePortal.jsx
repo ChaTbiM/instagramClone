@@ -6,6 +6,7 @@ const modalRoot = document.getElementById("modal");
 function CreatePortal({ children }) {
   const { isOpen } = useModalState();
   const container = document.createElement("div");
+  container.classList.add("standard__font");
 
   useEffect(() => {
     modalRoot.appendChild(container);

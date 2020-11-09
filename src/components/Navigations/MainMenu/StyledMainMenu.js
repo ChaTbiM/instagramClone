@@ -81,6 +81,25 @@ const StyledMainMenu = styled.nav`
   .clickable {
     cursor: pointer;
   }
+
+  .arrow-up {
+    position: absolute;
+    right: 6.5px;
+    bottom: -11px;
+    // bottom: -13px;
+    // width: 0;
+    // height: 0;
+    // border-left: 10px solid transparent;
+    // border-right: 10px solid transparent;
+    // border-bottom: 20px solid white;
+    width: 18px;
+    height: 18px;
+    transform: rotate(45deg);
+    background: white;
+    box-shadow: 0 0 8px #d3d3d3;
+
+    z-index: 100;
+  }
 `;
 
 export { StyledMainMenu };

@@ -25,13 +25,14 @@ function MainMenu() {
   useLayoutEffect(() => {
     if (navRef) {
       let top = navRef.current.getBoundingClientRect().height;
-      setTopPosition(top + 5);
+      setTopPosition(top + 1);
     }
   }, [profilePictureRef, navRef, setTopPosition]);
 
   const openModal = () => {
     dispatch({ type: "OPEN_MODAL" });
   };
+
   return (
     <StyledMainMenu>
       <ul className="list" ref={navRef}>
@@ -67,6 +68,7 @@ function MainMenu() {
               size="small"
               onClick={openModal}
             />
+            {isOpen && <div className="arrow-up"></div>}
           </span>
           <CreatePortal>
             {topPosition && (

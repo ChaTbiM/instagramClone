@@ -1,3 +1,10 @@
+import {
+  faBookmark,
+  faCogs,
+  faRandom,
+  faUserCircle,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import { useModalDispatch } from "../../../hooks/modalContext";
@@ -18,20 +25,24 @@ function ProfileModal({ left, top }) {
     <StyledProfileModal ref={ref} className="module" left={left} top={top}>
       <ul className="list">
         <Link className="list__item" to="/chatbim">
-          Profile
+          <FontAwesomeIcon className="list__item__icon" icon={faUserCircle} />
+          <span className="list__item__text">Profile</span>
         </Link>
         <Link className="list__item" to="/chatbim">
-          Saved
+          <FontAwesomeIcon className="list__item__icon" icon={faBookmark} />
+          <span className="list__item__text">Saved</span>
         </Link>
         <Link className="list__item" to="/chatbim">
-          Settings
+          <FontAwesomeIcon className="list__item__icon" icon={faCogs} />
+          <span className="list__item__text">Settings</span>
         </Link>
         <Link className="list__item" to="/chatbim">
-          Switch Account
+          <FontAwesomeIcon className="list__item__icon" icon={faRandom} />
+          <span className="list__item__text">Switch Account</span>
         </Link>
         <hr />
         <Link className="list__item" to="/chatbim">
-          Log Out
+          <span className="list__item__text">Log Out</span>
         </Link>
       </ul>
     </StyledProfileModal>
