@@ -8,24 +8,24 @@ const StyledMainMenu = styled.nav`
   background-color: white;
   border-bottom: solid 1px #eee;
   z-index: 100;
-  padding:0 1rem;
+  padding: 0 1rem;
 
   .list {
-    padding:10.5px 0;
+    padding: 10.5px 0;
     margin: 0 auto;
-    
- 
+
+    position: relative;
 
     max-width: 940px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    @media screen and (max-width:700px){
-      margin:0 .5rem;
+    @media screen and (max-width: 700px) {
+      margin: 0 0.5rem;
     }
 
-    flex-wrap:wrap;
+    flex-wrap: wrap;
   }
 
   .list__item {
@@ -36,23 +36,22 @@ const StyledMainMenu = styled.nav`
     // width: 100px;
     height: 30px;
     font-size: 20px;
-    text-align:center
+    text-align: center;
   }
-  .list__icons{
-    display:inline-flex;
-    align-items:center;
-    justify-content:flex-between;
-    width:200px;
-   
-    box-sizing:border-box;
+  .list__icons {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-between;
+    width: 200px;
+
+    box-sizing: border-box;
   }
-  .list__icons__item 
-   {
+  .list__icons__item {
     margin-right: 20px;
 
-    @media screen and (max-width:380px){
+    @media screen and (max-width: 380px) {
       // margin-left:2rem;
-      margin-right:10.5px;
+      margin-right: 10.5px;
     }
 
     font-size: 22px;
@@ -61,8 +60,8 @@ const StyledMainMenu = styled.nav`
 
   .search__bar {
     position: relative;
-    @media  screen and (max-width:590px){
-      display:none;
+    @media screen and (max-width: 590px) {
+      display: none;
     }
   }
 
@@ -79,14 +78,9 @@ const StyledMainMenu = styled.nav`
     padding: 0.25rem 0.25rem 0.25rem 1.5rem;
   }
 
-  .clickable{
-    cursor:pointer;
+  .clickable {
+    cursor: pointer;
   }
-
-
-
-
-  
 `;
 
 export { StyledMainMenu };

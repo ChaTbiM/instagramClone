@@ -17,29 +17,23 @@ import { useModalDispatch, useModalState } from "../../../hooks/modalContext";
 
 function MainMenu() {
   const [topPosition, setTopPosition] = useState(0);
-  const [leftPosition, setLeftPosition] = useState(0);
   const dispatch = useModalDispatch();
   const { isOpen } = useModalState();
   const profilePictureRef = useRef(null);
   const navRef = useRef(null);
 
   useLayoutEffect(() => {
-    if (profilePictureRef) {
-      let left = profilePictureRef.current.getBoundingClientRect().right;
-      setLeftPosition(left);
-    }
     if (navRef) {
       let top = navRef.current.getBoundingClientRect().height;
       setTopPosition(top + 5);
     }
-  }, [profilePictureRef, navRef, setTopPosition, setLeftPosition]);
+  }, [profilePictureRef, navRef, setTopPosition]);
 
   const openModal = () => {
     dispatch({ type: "OPEN_MODAL" });
   };
-
   return (
-    <StyledMainMenu left={leftPosition} top={topPosition}>
+    <StyledMainMenu>
       <ul className="list" ref={navRef}>
         <li className="list__item logo" onClick={openModal}>
           instagram
@@ -75,12 +69,8 @@ function MainMenu() {
             />
           </span>
           <CreatePortal>
-            {leftPosition && topPosition && (
-              <ProfileModal
-                left={leftPosition}
-                top={topPosition}
-                className="profile__modal"
-              />
+            {topPosition && (
+              <ProfileModal top={topPosition} className="profile__modal" />
             )}
           </CreatePortal>
         </div>
