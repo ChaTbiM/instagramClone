@@ -4,15 +4,12 @@ import { createPortal } from "react-dom";
 // 'modal-root' is a sibling to 'app-root'
 const modalRoot = document.getElementById("disclaimer");
 
-export default function DisclaimerModal({ isOpen, children }) {
-  // element to which the modal will be rendered
+function DisclaimerModal({ isOpen, children }) {
   const el = document.createElement("div");
 
   useEffect(() => {
-    // append to root when the children of Modal are mounted
     modalRoot.appendChild(el);
 
-    // do a cleanup
     return () => {
       modalRoot.removeChild(el);
     };
@@ -21,7 +18,6 @@ export default function DisclaimerModal({ isOpen, children }) {
   return (
     isOpen &&
     createPortal(
-      // child element
       <div
         style={{
           position: "absolute",
@@ -29,7 +25,6 @@ export default function DisclaimerModal({ isOpen, children }) {
           left: 0,
           height: "100%",
           width: "100%",
-          //   padding: "100px",
           backgroundColor: "rgba(0,0,0,0.6)",
           zIndex: 99999999,
         }}
@@ -60,8 +55,8 @@ export default function DisclaimerModal({ isOpen, children }) {
           <div style={{ marginTop: "1rem" }}>{children}</div>
         </div>
       </div>,
-      // target container
       el
     )
   );
 }
+export default DisclaimerModal;

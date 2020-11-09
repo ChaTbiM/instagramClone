@@ -6,7 +6,7 @@ import Home from "./scenes/Home";
 import MainMenu from "./components/Navigations/MainMenu/MainMenu";
 import { ModalProvider } from "./hooks/modalContext";
 import Profile from "./scenes/Profile";
-import { DisclaimerModal } from "./components/modals/DisclaimerModal/DisclaimerModal";
+import DisclaimerModal from "./components/modals/DisclaimerModal/DisclaimerModal";
 import styled from "styled-components";
 const StyledCloseButton = styled.button`
   padding: 8px 15px;
