@@ -26,7 +26,9 @@ function Post() {
   return (
     <StyledPost>
       <div className="post__header">
-        <ProfilePicture size="medium" />
+        <span className="post__header__story">
+          <ProfilePicture size="medium" isStory />
+        </span>
         <p className="person__name">name ..</p>
       </div>
       <img src={PostPicture} alt="" className="post__picture" />
@@ -60,23 +62,6 @@ function Post() {
         />
         <button className="add__comment">Post</button>
       </div>
-
-      {/* 
-        top
-          profile picture + name 
-          options Modal
-        picture
-        bottom
-          actions
-            left
-              like 
-              comment 
-              share Modal
-            right
-              bookmark
-          list of comments
-
-      */}
     </StyledPost>
   );
 }

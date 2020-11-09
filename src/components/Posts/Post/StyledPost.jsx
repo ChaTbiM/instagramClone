@@ -1,21 +1,27 @@
-const { default: styled } = require("styled-components");
+import styled from "styled-components";
 
 const StyledPost = styled.div`
-  :not(:first-of-type){
+  :not(:first-of-type) {
     margin-top: 4.3rem;
-  }  
+  }
 
   border: solid 1px #eee;
-  background-color:white;
-  
+  background-color: white;
+
   .post__header {
     display: flex;
     align-items: center;
     border-bottom: solid 1px #eee;
   }
 
+  .post__header__story {
+    margin: 0.6em 1em;
+  }
+
   .person__name {
     display: inline-block;
+    font-weight: 500;
+    cursor: pointer;
   }
 
   .post__picture {
@@ -53,7 +59,7 @@ const StyledPost = styled.div`
   }
 
   .post__comment__from {
-    font-weight: bold;
+    font-weight: 500;
     margin-right: 1rem;
   }
 
