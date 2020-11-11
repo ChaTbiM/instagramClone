@@ -39,6 +39,8 @@
   },
   "devDependencies": {
     "@fortawesome/free-regular-svg-icons": "^5.15.1",
+    "faker": "^5.1.0",
+    "miragejs": "^0.1.41",
     "styled-components": "^5.2.0"
   }
 }
