@@ -36,9 +36,7 @@ function MainMenu() {
   return (
     <StyledMainMenu>
       <ul className="list" ref={navRef}>
-        <li className="list__item logo" onClick={openModal}>
-          instagram
-        </li>
+        <li className="list__item logo">instagram</li>
         <li className="list__item search__bar">
           <FontAwesomeIcon className="search__icon" icon={faSearch} />
           <input
@@ -66,7 +64,6 @@ function MainMenu() {
               // className={isOpen ? "profile__picture__active" : ""}
               isActive={isOpen}
               size="small"
-              onClick={openModal}
             />
             {isOpen && <div className="arrow-up"></div>}
           </span>

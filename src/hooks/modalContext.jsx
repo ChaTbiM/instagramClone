@@ -1,7 +1,7 @@
 import * as React from "react";
 
 const initialState = {
-  isOpen: true,
+  isOpen: false,
 };
 
 const ModalStateContext = React.createContext();

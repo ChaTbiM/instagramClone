@@ -44,6 +44,7 @@ const StyledPost = styled.div`
   .interaction__icon {
     width: 24px;
     height: 24px;
+    cursor: pointer;
   }
 
   .main__interactions {
@@ -61,10 +62,11 @@ const StyledPost = styled.div`
   .post__comment__from {
     font-weight: 500;
     margin-right: 1rem;
+    cursor: pointer;
   }
 
   .post__time {
-    margin-top: 0.75rem;
+    margin-top: 0.5em;
     font-weight: light;
     color: grey;
   }
