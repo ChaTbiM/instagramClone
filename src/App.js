@@ -18,7 +18,7 @@ if (process.env.NODE_ENV === "development") {
 
 const queryCache = new QueryCache();
 function App() {
-  const [isDisclaimerOpen, setIsDisclaimerOpen] = useState(false);
+  const [isDisclaimerOpen, setIsDisclaimerOpen] = useState(true);
   return (
     <ReactQueryCacheProvider queryCache={queryCache}>
       <Router>

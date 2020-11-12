@@ -12,7 +12,12 @@ function Posts() {
   }
 
   if (isError) {
-    return <span>Error Bro ! ....</span>;
+    return (
+      <span>
+        server is not available right now ! , please try it in your local
+        development environment
+      </span>
+    );
   }
 
   const renderPosts = () => {

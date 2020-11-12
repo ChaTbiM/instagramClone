@@ -29,20 +29,13 @@ function DisclaimerModal({ isOpen, children }) {
           zIndex: 99999999,
         }}
       >
-        <div
-          style={{
-            width: "50%",
-            background: "white",
-            padding: "50px",
-            textAlign: "center",
-            position: "relative",
-            fontSize: "20px",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%,-50%)",
-          }}
-        >
+        <div className="disclaimer">
           <h1>DISCLAIMER : THIS IS FOR LEARNING PURPOSE ONLY ! </h1>
+
+          <p>
+            important : for now it works only on local development env , I will
+            set up server SOON !
+          </p>
           <p>
             P.S : not trying to overcome instagram !
             <span role="img" aria-label="jsx-a11y/accessible-emoji">
@@ -52,7 +45,8 @@ function DisclaimerModal({ isOpen, children }) {
               &#128514;
             </span>
           </p>
-          <div style={{ marginTop: "1rem" }}>{children}</div>
+
+          <div className="disclaimer__content">{children}</div>
         </div>
       </div>,
       el
