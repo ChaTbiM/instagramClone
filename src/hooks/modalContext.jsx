@@ -10,15 +10,10 @@ const ModalDispatchContext = React.createContext();
 function modalReducer(state, action) {
   switch (action.type) {
     case "OPEN_MODAL":
-      console.log("opening?");
       return { isOpen: true };
 
     case "CLOSE_MODAL":
       return { isOpen: false };
-    case "RESET":
-      console.log("reset state");
-      break;
-
     default:
       throw new Error(`unhandled action type : ${action.type}`);
   }

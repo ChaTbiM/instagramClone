@@ -1,9 +1,15 @@
 import faker from "faker";
 
 const userFactory = {
-  name: faker.name.findName(),
+  name() {
+    return faker.name.findName();
+  },
   avatar() {
-    return faker.image.imageUrl(60, 60, "people");
+    return `${faker.image.imageUrl(
+      60,
+      60,
+      "people"
+    )}?random${faker.random.number(20)}`;
   },
 };
 

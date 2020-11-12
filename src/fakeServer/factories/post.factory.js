@@ -5,7 +5,11 @@ const postFactory = {
     return faker.lorem.words(3);
   },
   image() {
-    return faker.image.imageUrl(613, 613, "nature");
+    return `${faker.image.imageUrl(
+      400,
+      400,
+      "nature"
+    )}?random${faker.random.number(20)}`;
   },
   sincePublished() {
     return faker.random.number(23);

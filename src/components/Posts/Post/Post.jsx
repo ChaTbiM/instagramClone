@@ -10,28 +10,29 @@ import {
   faShareAlt,
 } from "@fortawesome/free-solid-svg-icons";
 
-function Post() {
+function Post({ post }) {
   const temp = Array.from(Array(3).keys());
+  let { image, sincePublished, numberOfLikes, user, comment: comments } = post;
   const renderComments = () => {
-    return temp.map((el, index) => {
+    return comments.map((comment, index) => {
       return (
         <p key={`comment-${index}`} className="post__comment">
-          <span className="post__comment__from">name..</span>
-          <span className="post__comment__content">comment {index + 1}</span>
+          <span className="post__comment__from">{comment.user.name}</span>
+          <span className="post__comment__content">{comment.text}</span>
         </p>
       );
     });
   };
-  const PostPicture = require("../../../assets/profile.jpg");
+  // const PostPicture = require("../../../assets/profile.jpg");
   return (
     <StyledPost>
       <div className="post__header">
         <span className="post__header__story">
-          <ProfilePicture size="medium" isStory />
+          <ProfilePicture url={user.avatar} size="medium" isStory />
         </span>
-        <p className="person__name">name ..</p>
+        <p className="person__name">{user.name}</p>
       </div>
-      <img src={PostPicture} alt="" className="post__picture" />
+      <img src={image} alt="" className="post__picture" />
       <div className="post__footer">
         <div className="post__footer__interactions">
           <div className="post__footer__interactions__left">
@@ -50,9 +51,9 @@ function Post() {
           </div>
           <FontAwesomeIcon className="interaction__icon" icon={faBookmark} />
         </div>
-        <p className="post__views">82 views</p>
+        <p className="post__views">{numberOfLikes} likes</p>
         {renderComments()}
-        <p className="post__time">59 minutes ago</p>
+        <p className="post__time">{sincePublished} hours</p>
       </div>
       <div className="create__comment">
         <input

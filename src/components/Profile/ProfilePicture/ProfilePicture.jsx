@@ -38,7 +38,7 @@ const ProfilePicture = React.forwardRef((props, ref) => {
     >
       <img
         ref={ref}
-        src={profileImage}
+        src={props.url ? props.url : profileImage}
         alt="story"
         className={isStory || isActive ? "picture picture__inside" : "picture"}
       />

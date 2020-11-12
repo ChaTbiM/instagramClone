@@ -6,7 +6,7 @@ import * as serviceWorker from "./serviceWorker";
 import axios from "axios";
 
 // global config for axios
-axios.defaults.baseURL = "http://localhost:3000/"; //CHANGE LATER FOR PRODUCTION
+axios.defaults.baseURL = "http://localhost:3000/api"; //CHANGE LATER FOR PRODUCTION
 axios.defaults.headers.get["Accept"] = "application/json"; // default header for all get request
 axios.defaults.headers.post["Accept"] = "application/json"; // default header for all POST request
 
@@ -17,7 +17,6 @@ axios.interceptors.request.use(
     // Do something before request is sent
     // Assign token
     config.headers = { ...config.headers, Authorization: `Bearer ${token}` };
-    console.log(config, "config");
     return config;
   },
   function (error) {

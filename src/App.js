@@ -9,35 +9,41 @@ import Profile from "./scenes/Profile";
 import { ModalProvider } from "./hooks/modalContext";
 import DisclaimerModal from "./components/modals/DisclaimerModal/DisclaimerModal";
 import { makeServer } from "./fakeServer/server";
+import { QueryCache, ReactQueryCacheProvider } from "react-query";
+import { ReactQueryDevtools } from "react-query-devtools";
 
 if (process.env.NODE_ENV === "development") {
   makeServer({ environment: "development" });
 }
 
+const queryCache = new QueryCache();
 function App() {
   const [isDisclaimerOpen, setIsDisclaimerOpen] = useState(false);
   return (
-    <Router>
-      <ModalProvider>
-        <MainMenu />
-      </ModalProvider>
+    <ReactQueryCacheProvider queryCache={queryCache}>
+      <Router>
+        <ModalProvider>
+          <MainMenu />
+        </ModalProvider>
 
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route exact path="/chatbim">
-          <Profile />
-        </Route>
-      </Switch>
-      <DisclaimerModal isOpen={isDisclaimerOpen}>
-        <StyledCloseButton
-          onClick={() => setIsDisclaimerOpen((oldVal) => !oldVal)}
-        >
-          X close
-        </StyledCloseButton>
-      </DisclaimerModal>
-    </Router>
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route exact path="/chatbim">
+            <Profile />
+          </Route>
+        </Switch>
+        <DisclaimerModal isOpen={isDisclaimerOpen}>
+          <StyledCloseButton
+            onClick={() => setIsDisclaimerOpen((oldVal) => !oldVal)}
+          >
+            X close
+          </StyledCloseButton>
+        </DisclaimerModal>
+      </Router>
+      <ReactQueryDevtools initialIsOpen={false} />
+    </ReactQueryCacheProvider>
   );
 }
 
