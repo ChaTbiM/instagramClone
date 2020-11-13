@@ -2,11 +2,12 @@ import React from "react";
 import ProfilePicture from "../../Profile/ProfilePicture/ProfilePicture";
 import { StyledStory } from "./StyledStory";
 
-function Story({ number }) {
+function Story({ name, avatar, isStory }) {
+  let shortName = name.length > 10 ? `${name.substring(0, 10)}...` : name;
   return (
     <StyledStory>
-      <ProfilePicture size="large" isStory={true} />
-      <p className="person__name">{number}</p>
+      <ProfilePicture url={avatar} size="large" isStory={isStory && true} />
+      <p className="person__name">{shortName}</p>
     </StyledStory>
   );
 }

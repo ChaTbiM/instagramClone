@@ -52,6 +52,10 @@ export function makeServer({ environment = "test" } = {}) {
         embed: true,
         root: false,
       }),
+      user: ApplicationSerializer.extend({
+        embed: true,
+        root: false,
+      }),
     },
 
     seeds(server) {

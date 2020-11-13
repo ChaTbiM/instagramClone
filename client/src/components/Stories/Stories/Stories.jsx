@@ -3,28 +3,40 @@ import { useSpring, animated } from "react-spring";
 
 import Story from "../Story/Story";
 import { StyledStories } from "./StyledStories";
-import {
-  ChevronRight,
-  ChevronLeft,
-} from "react-feather";
+import { ChevronRight, ChevronLeft } from "react-feather";
+import useUsers from "../../../hooks/useUsers";
 
 function Stories() {
-  // const scrollRef = useRef(null);
-  // I might be able to improve scrolling logic later --- using Steps Counter ( counting clicks ) and then scroll to one of scroll step width interval ---- example , srollStepWidth = 320 =>>> 320 , 640 , 960 ...
+  const { data, isLoading, isError } = useUsers(); // users data
   let [x, setX] = useState(0);
   let [scrollWidthLimit, setScrollWidthLimit] = useState(0);
   let [scrollRight, setScrollRight] = useState(true);
   let [scrollLeft, setScrollLeft] = useState(false);
+  let [numberOfStories, setNumberOfStories] = useState(8);
 
-  const temp = Array.from(Array(15).keys());
-  const numberOfStories = temp.length;
   const scrollStepWidth = 320;
+  // const temp = Array.from(Array(15).keys());
+  // const numberOfStories = data.length ? data.length : 8;
 
-  const renderStoriesFunction = (data) =>
-    data.map((el, index) => <Story number={index} key={`story-${index}`} />);
+  const renderStoriesFunction = (users) =>
+    users.map((user, index) => (
+      <Story
+        name={user.name}
+        avatar={user.avatar}
+        isStory={true}
+        key={`story-${index}`}
+      />
+    ));
 
-  const renderStories = useCallback(() => renderStoriesFunction(temp), [temp]);
-
+  const renderStories = useCallback(
+    (users) => renderStoriesFunction(users),
+    []
+  );
+  useEffect(() => {
+    if (data) {
+      setNumberOfStories(data.length);
+    }
+  }, [data]);
   const easingFunction = (x) => {
     return 1 - Math.pow(1 - x, 3);
     // return x < 0.5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2;
@@ -92,6 +104,14 @@ function Stories() {
 
   const AnimatedStories = animated.div;
 
+  if (isLoading) {
+    return "loading.....";
+  }
+
+  if (isError) {
+    return "error please refresh page...";
+  }
+
   return (
     <StyledStories>
       <div className="scrollControl">
@@ -109,7 +129,8 @@ function Stories() {
         // ref={scrollRef}
         className="storiesList"
       >
-        {renderStories()}
+        {renderStories(data)}
+        rendered stories
       </AnimatedStories>
     </StyledStories>
   );

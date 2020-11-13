@@ -33,7 +33,7 @@ const HomeContainer = styled.div`
   padding-top: 6.4rem;
 
   .content {
-    max-width: 615px;
+    width: 615px;
   }
 
   .sidebar {
