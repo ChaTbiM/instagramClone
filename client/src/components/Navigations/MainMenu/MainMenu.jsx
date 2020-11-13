@@ -1,14 +1,6 @@
 import React, { useRef, useState, useLayoutEffect } from "react";
 import { StyledMainMenu } from "./StyledMainMenu";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCompass,
-  faEnvelope,
-  faHeart,
-  faHome,
-  faSearch,
-  // faUserCog,
-} from "@fortawesome/free-solid-svg-icons";
+import { Home, Heart, Compass, Send, Search } from "react-feather";
 import { Link } from "react-router-dom";
 import ProfileModal from "../../modals/ProfileModal/ProfileModal";
 import CreatePortal from "../../modals/CreatePortal";
@@ -38,26 +30,24 @@ function MainMenu() {
       <ul className="list" ref={navRef}>
         <li className="list__item logo">instagram</li>
         <li className="list__item search__bar">
-          <FontAwesomeIcon className="search__icon" icon={faSearch} />
+          <Search className="search__icon" />
           <input
             className="list__item__input search"
-            placeholder="search"
+            placeholder="Search"
             type="text"
           />
         </li>
         <div className="list__icons">
           <Link to="/">
-            <FontAwesomeIcon className="list__icons__item" icon={faHome} />
+            <Home className="list__icons__item" />
           </Link>
           <Link to="/messages">
-            <FontAwesomeIcon className="list__icons__item" icon={faEnvelope} />
+            <Send className="list__icons__item" />
           </Link>
           <Link to="/people">
-            <FontAwesomeIcon className="list__icons__item" icon={faCompass} />
+            <Compass className="list__icons__item" />
           </Link>
-
-          <FontAwesomeIcon className="list__icons__item" icon={faHeart} />
-          {/* <FontAwesomeIcon className="list__icons__item" icon={faUserCog} /> */}
+          <Heart className="list__icons__item" />
           <span onClick={openModal} className=" profile__picture__active">
             <ProfilePicture
               ref={profilePictureRef}

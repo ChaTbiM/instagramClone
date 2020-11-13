@@ -11,11 +11,11 @@ const StyledPost = styled.div`
   .post__header {
     display: flex;
     align-items: center;
-    border-bottom: solid 1px #eee;
+    margin: 0.6em 1em;
   }
 
   .post__header__story {
-    margin: 0.6em 1em;
+    margin-right: 1em;
   }
 
   .person__name {
@@ -45,10 +45,18 @@ const StyledPost = styled.div`
     width: 24px;
     height: 24px;
     cursor: pointer;
+    color: rgba(0, 0, 0, 0.7);
   }
 
   .main__interactions {
     margin-right: 1rem;
+  }
+
+  .more__interaction {
+    margin-left: auto;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
   }
 
   .post__comment {

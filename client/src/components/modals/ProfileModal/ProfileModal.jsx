@@ -1,10 +1,4 @@
-import {
-  faBookmark,
-  faCogs,
-  faRandom,
-  faUserCircle,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Bookmark, Settings, Shuffle, User } from "react-feather";
 import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import { useModalDispatch } from "../../../hooks/modalContext";
@@ -25,19 +19,19 @@ function ProfileModal({ left, top }) {
     <StyledProfileModal ref={ref} className="module" left={left} top={top}>
       <ul className="list">
         <Link className="list__item" to="/chatbim">
-          <FontAwesomeIcon className="list__item__icon" icon={faUserCircle} />
+          <User className="list__item__icon" />
           <span className="list__item__text">Profile</span>
         </Link>
         <Link className="list__item" to="/chatbim">
-          <FontAwesomeIcon className="list__item__icon" icon={faBookmark} />
+          <Bookmark className="list__item__icon" />
           <span className="list__item__text">Saved</span>
         </Link>
         <Link className="list__item" to="/chatbim">
-          <FontAwesomeIcon className="list__item__icon" icon={faCogs} />
+          <Settings className="list__item__icon" />
           <span className="list__item__text">Settings</span>
         </Link>
         <Link className="list__item" to="/chatbim">
-          <FontAwesomeIcon className="list__item__icon" icon={faRandom} />
+          <Shuffle className="list__item__icon" />
           <span className="list__item__text">Switch Account</span>
         </Link>
         <hr />

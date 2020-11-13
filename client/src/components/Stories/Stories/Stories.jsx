@@ -3,11 +3,10 @@ import { useSpring, animated } from "react-spring";
 
 import Story from "../Story/Story";
 import { StyledStories } from "./StyledStories";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faArrowAltCircleLeft,
-  faArrowAltCircleRight,
-} from "@fortawesome/free-solid-svg-icons";
+  ChevronRight,
+  ChevronLeft,
+} from "react-feather";
 
 function Stories() {
   // const scrollRef = useRef(null);
@@ -97,19 +96,11 @@ function Stories() {
     <StyledStories>
       <div className="scrollControl">
         {scrollLeft && (
-          <FontAwesomeIcon
-            icon={faArrowAltCircleLeft}
-            onClick={scrollLeftHandler}
-            className="leftAngle"
-          />
+          <ChevronLeft onClick={scrollLeftHandler} className="leftAngle" />
         )}
 
         {scrollRight && (
-          <FontAwesomeIcon
-            icon={faArrowAltCircleRight}
-            onClick={scrollRightHandler}
-            className="rightAngle"
-          />
+          <ChevronRight onClick={scrollRightHandler} className="rightAngle" />
         )}
       </div>
 

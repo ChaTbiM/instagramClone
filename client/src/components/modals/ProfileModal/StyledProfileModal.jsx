@@ -29,14 +29,18 @@ const StyledProfileModal = styled.div`
   }
 
   .list__item__icon {
-    font-size: 1.15em;
-    width: 1.15em;
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+
     margin-right: 1rem;
     color: grey;
+    vertical-align: bottom;
   }
 
   .list__item__text {
-    line-height: 0.8rem;
+    line-height: 1rem;
+    // font-size: 18px;
   }
 
   hr {

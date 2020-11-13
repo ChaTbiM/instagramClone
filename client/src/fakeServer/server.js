@@ -57,7 +57,7 @@ export function makeServer({ environment = "test" } = {}) {
     seeds(server) {
       server.createList("user", 5).forEach((user) => {
         server
-          .createList("post", faker.random.number(12), { user })
+          .createList("post", faker.random.number(4), { user })
           .forEach((post) => {
             server
               .createList("comment", faker.random.number(7), {

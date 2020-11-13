@@ -50,12 +50,12 @@ const StyledMainMenu = styled.nav`
     margin-right: 20px;
 
     @media screen and (max-width: 380px) {
-      // margin-left:2rem;
       margin-right: 10.5px;
     }
-
+    width: 22px;
+    height: 22px;
     font-size: 22px;
-    color: gray;
+    color: rgba(0, 0, 0, 0.8);
   }
 
   .search__bar {
@@ -63,19 +63,23 @@ const StyledMainMenu = styled.nav`
     @media screen and (max-width: 590px) {
       display: none;
     }
+    vertical-align: middle;
   }
 
   .search__icon {
     position: absolute;
     left: 0.25rem;
-    font-size: 12px;
-    top: 50%;
+    // font-size: 10px;
+    width: 14px;
+    top: 52%;
     transform: translateY(-50%);
+    color: grey;
+    vertical-align: bottom;
   }
 
   .search {
-    // width: 200px;
-    padding: 0.25rem 0.25rem 0.25rem 1.5rem;
+    font-size: 1em;
+    padding: 0.1rem 0.1rem 0.1rem 1.5rem;
   }
 
   .clickable {

@@ -14,11 +14,12 @@ import { ReactQueryDevtools } from "react-query-devtools";
 
 if (process.env.NODE_ENV === "development") {
   makeServer({ environment: "development" });
+  console.log("base_url", process.env.REACT_APP_BASE_URL);
 }
 
 const queryCache = new QueryCache();
 function App() {
-  const [isDisclaimerOpen, setIsDisclaimerOpen] = useState(true);
+  const [isDisclaimerOpen, setIsDisclaimerOpen] = useState(false);
   return (
     <ReactQueryCacheProvider queryCache={queryCache}>
       <Router>

@@ -5,8 +5,6 @@ import { StyledPosts } from "./StyledPosts";
 
 function Posts() {
   const { data, isError, isLoading } = usePosts();
-  // const temp = Array.from(Array(15).keys());
-
   if (isLoading) {
     return <span>Loading ....</span>;
   }

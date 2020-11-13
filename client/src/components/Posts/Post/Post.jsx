@@ -1,14 +1,13 @@
 import React from "react";
 import ProfilePicture from "../../Profile/ProfilePicture/ProfilePicture";
 import { StyledPost } from "./StyledPost";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faBookmark,
-  faComment,
-  faHeart,
-  faShareAlt,
-} from "@fortawesome/free-solid-svg-icons";
+  Bookmark,
+  Heart,
+  Share2,
+  MessageCircle,
+  MoreHorizontal,
+} from "react-feather";
 
 function Post({ post }) {
   let { image, sincePublished, numberOfLikes, user, comment: comments } = post;
@@ -22,7 +21,7 @@ function Post({ post }) {
       );
     });
   };
-  // const PostPicture = require("../../../assets/profile.jpg");
+
   return (
     <StyledPost>
       <div className="post__header">
@@ -30,25 +29,17 @@ function Post({ post }) {
           <ProfilePicture url={user.avatar} size="medium" isStory />
         </span>
         <p className="person__name">{user.name}</p>
+        <MoreHorizontal className="more__interaction" />
       </div>
       <img src={image} alt="" className="post__picture" />
       <div className="post__footer">
         <div className="post__footer__interactions">
           <div className="post__footer__interactions__left">
-            <FontAwesomeIcon
-              className="interaction__icon main__interactions"
-              icon={faHeart}
-            />
-            <FontAwesomeIcon
-              className="interaction__icon main__interactions"
-              icon={faComment}
-            />
-            <FontAwesomeIcon
-              className="interaction__icon main__interactions"
-              icon={faShareAlt}
-            />
+            <Heart className="interaction__icon main__interactions" />
+            <MessageCircle className="interaction__icon main__interactions" />
+            <Share2 className="interaction__icon main__interactions" />
           </div>
-          <FontAwesomeIcon className="interaction__icon" icon={faBookmark} />
+          <Bookmark className="interaction__icon main__interactions" />
         </div>
         <p className="post__views">{numberOfLikes} likes</p>
         {renderComments()}
