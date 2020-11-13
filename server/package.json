@@ -1,11 +1,22 @@
 {
   "name": "instagramClone-(expressjs)",
-  "version": "0.1",
+  "version": "1.0.0",
   "description": "instagram clone api made with expressjs",
-  "main": "index.js",
+  "main": "app.js",
   "author": "chatbi mustapha",
   "license": "MIT",
+  "scripts":{
+    "start":"node app"
+  },
   "devDependencies": {
-    "express": "^4.17.1"
+    "nodemon": "^2.0.6"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "faker": "^5.1.0"
+  },
+  "engines": {
+    "node": "12.x"
   }
 }

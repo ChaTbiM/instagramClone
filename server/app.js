@@ -1,12 +1,13 @@
 const express = require('express')
-
 const app = express();
-const port = 3000; 
+const port = 8000; 
 
+const posts = require('./factory')
 
 app.get('/',(req,res)=>{
-    res.send('Hello World');
+    res.json(posts);
 })
+
 
 
 app.listen(port,()=>{
