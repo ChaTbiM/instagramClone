@@ -6,7 +6,7 @@
   "author": "chatbi mustapha",
   "license": "MIT",
   "scripts":{
-    "start":"index app"
+    "start":"node index"
   },
   "devDependencies": {
     "nodemon": "^2.0.6"
