@@ -2,11 +2,11 @@
   "name": "instagramClone",
   "version": "1.0.0",
   "description": "instagram clone api made with expressjs",
-  "main": "app.js",
+  "main": "index.js",
   "author": "chatbi mustapha",
   "license": "MIT",
   "scripts":{
-    "start":"nodemon app"
+    "start":"index app"
   },
   "devDependencies": {
     "nodemon": "^2.0.6"

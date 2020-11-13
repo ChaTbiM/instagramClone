@@ -5,7 +5,7 @@ const port = 8000;
 const posts = require('./factory')
 
 app.get('/',(req,res)=>{
-    res.json(posts);
+    res.status(200).json(posts);
 })
 
 
