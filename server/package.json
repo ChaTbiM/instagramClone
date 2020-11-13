@@ -1,5 +1,5 @@
 {
-  "name": "instagramClone-(expressjs)",
+  "name": "instagramClone",
   "version": "1.0.0",
   "description": "instagram clone api made with expressjs",
   "main": "app.js",
