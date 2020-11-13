@@ -13,7 +13,9 @@ const returnComments = () => {
     };
   });
 };
-const randomIds = [...Array(faker.random.number(25))];
+
+const randomInt = ()=> Math.floor(Math.random() * 25);
+const randomIds = [...Array(randomInt())];
 
 const users = () => randomIds.map((randomId,index)=>{
   return {
@@ -38,7 +40,6 @@ const posts = () =>
       )}?random${faker.random.number(30)}`,
       sincePublished: faker.random.number(23),
       numberOfLikes: faker.random.number(166),
-      user:users[index],
       comment: returnComments(),
     };
   });
