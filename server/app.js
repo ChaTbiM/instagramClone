@@ -17,7 +17,12 @@ app.get('/',(req,res)=>{
 })
 
 app.get('/posts',(req,res)=>{
-    res.status(200).json(posts());
+    let postsData = posts();
+    let usersData = users();
+    postsData.forEach((el,index)=>{
+        el.user = usersData[index]
+    })
+    res.status(200).json(postsData);
 })
 
 app.get('/users',(req,res)=>{
