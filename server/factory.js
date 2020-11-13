@@ -14,10 +14,23 @@ const returnComments = () => {
   });
 };
 const randomIds = [...Array(faker.random.number(25))];
+
+const users = () => randomIds.map((randomId,index)=>{
+  return {
+    id: faker.random.number(25) + index,
+        name: faker.name.findName(),
+        avatar: `${faker.image.imageUrl(
+          60,
+          60,
+          "people"
+        )}?random${faker.random.number(20)}`,
+  }
+})
+
 const posts = () =>
-  randomIds.map((randomId, i) => {
+  randomIds.map((randomId, index) => {
     return {
-      id: i,
+      id: faker.random.number(25) + index,
       image: `${faker.image.imageUrl(
         400,
         400,
@@ -25,17 +38,10 @@ const posts = () =>
       )}?random${faker.random.number(30)}`,
       sincePublished: faker.random.number(23),
       numberOfLikes: faker.random.number(166),
-      user: {
-        id: faker.random.number(200) + i,
-        name: faker.name.findName(),
-        avatar: `${faker.image.imageUrl(
-          60,
-          60,
-          "people"
-        )}?random${faker.random.number(20)}`,
-      },
+      user:users[index],
       comment: returnComments(),
     };
   });
 
-module.exports = posts;
+
+module.exports = {posts,users};
