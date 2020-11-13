@@ -5,12 +5,13 @@ const returnComments = ()=>{
     return randomIds.map((randomId,index)=>{
         return {
             id:faker.random.number(50)+index,
-            text:faker.lorem.sentence(2)
+            text:faker.lorem.sentence(2),
+            name:faker.name.findName(),
         } 
     })
 }
 const randomIds = [...Array(faker.random.number(25))];
-const posts = randomIds.map((randomId,i) => {
+const posts = ()=> randomIds.map((randomId,i) => {
   return {
     id: i,
     image: `${faker.image.imageUrl(
