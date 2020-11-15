@@ -6,6 +6,7 @@ import ProfileModal from "../../modals/ProfileModal/ProfileModal";
 import CreatePortal from "../../modals/CreatePortal";
 import ProfilePicture from "../../Profile/ProfilePicture/ProfilePicture";
 import { useModalDispatch, useModalState } from "../../../hooks/modalContext";
+import { useEffect } from "react";
 
 function MainMenu() {
   const [topPosition, setTopPosition] = useState(0);

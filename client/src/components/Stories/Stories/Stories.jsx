@@ -6,8 +6,8 @@ import { StyledStories } from "./StyledStories";
 import { ChevronRight, ChevronLeft } from "react-feather";
 import useUsers from "../../../hooks/useUsers";
 
-function Stories() {
-  const { data, isLoading, isError } = useUsers(); // users data
+function Stories({ users }) {
+  const { data, isLoading, isError } = users; // users data
   let [x, setX] = useState(0);
   let [scrollWidthLimit, setScrollWidthLimit] = useState(0);
   let [scrollRight, setScrollRight] = useState(true);
@@ -130,7 +130,6 @@ function Stories() {
         className="storiesList"
       >
         {renderStories(data)}
-        rendered stories
       </AnimatedStories>
     </StyledStories>
   );

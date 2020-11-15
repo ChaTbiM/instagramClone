@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./reset.css";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -11,6 +11,9 @@ import DisclaimerModal from "./components/modals/DisclaimerModal/DisclaimerModal
 import { makeServer } from "./fakeServer/server";
 import { QueryCache, ReactQueryCacheProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query-devtools";
+import AppLoader from "./scenes/AppLoader";
+import loadingMachine from "./stateMachines/loadingMachine";
+import { useMachine } from "@xstate/react";
 
 if (process.env.NODE_ENV === "development") {
   makeServer({ environment: "development" });
@@ -18,18 +21,22 @@ if (process.env.NODE_ENV === "development") {
 }
 
 const queryCache = new QueryCache();
+export { queryCache };
+
 function App() {
+  const [loadingApp, setLoadingApp] = useState(true);
   const [isDisclaimerOpen, setIsDisclaimerOpen] = useState(false);
+
   return (
     <ReactQueryCacheProvider queryCache={queryCache}>
       <Router>
         <ModalProvider>
           <MainMenu />
         </ModalProvider>
-
+        {loadingApp && <AppLoader />}
         <Switch>
           <Route exact path="/">
-            <Home />
+            <Home setLoadingApp={setLoadingApp} />
           </Route>
           <Route exact path="/chatbim">
             <Profile />

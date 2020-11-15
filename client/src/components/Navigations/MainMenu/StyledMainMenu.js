@@ -13,6 +13,7 @@ const StyledMainMenu = styled.nav`
   .list {
     padding: 10.5px 0;
     margin: 0 auto;
+    margin-top: 5px;
 
     position: relative;
 

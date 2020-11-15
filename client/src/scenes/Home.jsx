@@ -1,15 +1,40 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import Posts from "../components/Posts/Posts/Posts";
 import SideBar from "../components/SideBar/SideBar";
 import Stories from "../components/Stories/Stories/Stories";
+import usePosts from "../hooks/usePosts";
+import useUsers from "../hooks/useUsers";
+import ProgressBar from "../components/ProgressBar/ProgressBar";
 
-function Home() {
+function Home({ setLoadingApp }) {
+  const posts = usePosts();
+  const users = useUsers();
+  const prevUpdatedAt = useRef(posts.updatedAt);
+  const [pageLoading, setPageLoading] = useState(true);
+  useEffect(() => {
+    if (posts.updatedAt !== prevUpdatedAt.current || posts.isInitialData) {
+      // console.log("new data");
+      setPageLoading(true);
+      // queryCache.setQueryData("homeLoading", true);
+    } else {
+      setPageLoading(false);
+      // queryCache.setQueryData("homeLoading", false);
+      // console.log("old Data");
+    }
+  }, [posts]);
+  useEffect(() => {
+    if (posts.status !== "loading") {
+      setLoadingApp(false);
+    }
+  }, [posts, setLoadingApp]);
   return (
     <HomeContainer>
+      {pageLoading && <ProgressBar />}
+
       <div className="content">
-        <Stories />
-        <Posts />
+        <Stories users={users} />
+        <Posts posts={posts} />
       </div>
 
       <div className="sidebar">

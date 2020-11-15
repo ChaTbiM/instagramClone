@@ -1,10 +1,24 @@
-import React from "react";
-import usePosts from "../../../hooks/usePosts";
+import React, { useRef, useState } from "react";
+import { useEffect } from "react";
 import Post from "../Post/Post";
 import { StyledPosts } from "./StyledPosts";
+import ProgressBar from "../../ProgressBar/ProgressBar";
+function Posts({ posts }) {
+  const { data, isError, isLoading, isInitialData, updatedAt } = posts;
+  // const prevUpdatedAt = useRef(updatedAt);
+  // const [pageLoading, setPageLoading] = useState(true);
+  // useEffect(() => {
+  //   if (updatedAt !== prevUpdatedAt.current || isInitialData) {
+  //     // console.log("new data");
+  //     setPageLoading(true);
+  //     // queryCache.setQueryData("homeLoading", true);
+  //   } else {
+  //     setPageLoading(false);
+  //     // queryCache.setQueryData("homeLoading", false);
+  //     // console.log("old Data");
+  //   }
+  // }, [isInitialData, isLoading, updatedAt]);
 
-function Posts() {
-  const { data, isError, isLoading } = usePosts();
   if (isLoading) {
     return <span>Loading ....</span>;
   }
@@ -23,7 +37,12 @@ function Posts() {
       return <Post post={post} key={`post-${index}`} />;
     });
   };
-  return <StyledPosts>{renderPosts()}</StyledPosts>;
+  return (
+    <StyledPosts>
+      {/* {pageLoading && <ProgressBar />} */}
+      {renderPosts()}
+    </StyledPosts>
+  );
 }
 
 export default Posts;

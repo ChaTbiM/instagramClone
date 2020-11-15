@@ -9,8 +9,10 @@ const getPosts = async () => {
 
 const usePosts = () => {
   return useQuery("posts", getPosts, {
-    staleTime: 10000,
+    staleTime: 20000,
     refetchOnWindowFocus: false,
+    refetchOnMount: false,
+    notifyOnStatusChange: false,
   });
 };
 

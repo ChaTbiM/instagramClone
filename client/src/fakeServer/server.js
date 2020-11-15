@@ -91,6 +91,7 @@ export function makeServer({ environment = "test" } = {}) {
           .sort((a, b) => a.sort - b.sort)
           .map((a) => a.value);
         return shuffledPosts;
+        // return ["one", "two", "three"];
       });
 
       this.get("/comments", (schema) => {
