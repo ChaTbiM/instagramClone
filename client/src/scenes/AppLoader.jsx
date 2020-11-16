@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 
-function AppLoader() {
+function AppLoader({ isShown }) {
+  useEffect(() => {
+    console.log("isShown???", isShown);
+  }, [isShown]);
   return (
     <Container>
       <p>🖐</p>

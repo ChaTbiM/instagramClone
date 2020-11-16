@@ -7,27 +7,19 @@ import usePosts from "../hooks/usePosts";
 import useUsers from "../hooks/useUsers";
 import ProgressBar from "../components/ProgressBar/ProgressBar";
 
-function Home({ setLoadingApp }) {
-  const posts = usePosts();
+function Home() {
   const users = useUsers();
-  const prevUpdatedAt = useRef(posts.updatedAt);
+  const posts = usePosts(users);
   const [pageLoading, setPageLoading] = useState(true);
+
   useEffect(() => {
-    if (posts.updatedAt !== prevUpdatedAt.current || posts.isInitialData) {
-      // console.log("new data");
+    if (posts.isFetching) {
       setPageLoading(true);
-      // queryCache.setQueryData("homeLoading", true);
     } else {
       setPageLoading(false);
-      // queryCache.setQueryData("homeLoading", false);
-      // console.log("old Data");
     }
   }, [posts]);
-  useEffect(() => {
-    if (posts.status !== "loading") {
-      setLoadingApp(false);
-    }
-  }, [posts, setLoadingApp]);
+
   return (
     <HomeContainer>
       {pageLoading && <ProgressBar />}

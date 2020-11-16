@@ -7,12 +7,13 @@ const getPosts = async () => {
   return data;
 };
 
-const usePosts = () => {
-  return useQuery("posts", getPosts, {
-    staleTime: 20000,
+const usePosts = (users) => {
+  return useQuery(["posts", "home"], getPosts, {
+    enabled: users,
+    staleTime: 5000,
     refetchOnWindowFocus: false,
     refetchOnMount: false,
-    notifyOnStatusChange: false,
+    notifyOnStatusChange: true,
   });
 };
 

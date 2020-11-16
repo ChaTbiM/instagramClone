@@ -8,11 +8,11 @@ const fetchUsers = async () => {
 };
 
 const useUsers = () => {
-  return useQuery("users", fetchUsers, {
-    staleTime: 20000,
+  return useQuery(["users", "home"], fetchUsers, {
+    staleTime: 200000,
     refetchOnWindowFocus: false,
     refetchOnMount: false,
-    notifyOnStatusChange: false,
+    notifyOnStatusChange: true,
   });
 };
 

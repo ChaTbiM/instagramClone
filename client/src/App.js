@@ -12,20 +12,46 @@ import { makeServer } from "./fakeServer/server";
 import { QueryCache, ReactQueryCacheProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query-devtools";
 import AppLoader from "./scenes/AppLoader";
-import loadingMachine from "./stateMachines/loadingMachine";
-import { useMachine } from "@xstate/react";
 
 if (process.env.NODE_ENV === "development") {
   makeServer({ environment: "development" });
   console.log("base_url", process.env.REACT_APP_BASE_URL);
 }
 
-const queryCache = new QueryCache();
-export { queryCache };
-
 function App() {
   const [loadingApp, setLoadingApp] = useState(true);
   const [isDisclaimerOpen, setIsDisclaimerOpen] = useState(false);
+
+  const queryCache = new QueryCache();
+
+  const callback = (cache, query) => {
+    const pages = ['"home"', '"test"'];
+
+    if (query && cache.isFetching === 0) {
+      // if (query.queryHash.includes('"home"') && cache.isFetching === 0) {
+      //   return setLoadingApp(false);
+      // }
+      pages.forEach((page) => {
+        if (query.queryHash.includes(page) && cache.isFetching === 0) {
+          return setLoadingApp(false);
+        }
+      });
+    }
+  };
+
+  const unsubscribe = queryCache.subscribe(callback);
+
+  useEffect(() => {
+    return () => {
+      unsubscribe();
+    };
+  }, [unsubscribe]);
+
+  useEffect(() => {
+    if (queryCache.queriesArray.length === 0) {
+      setLoadingApp(false);
+    }
+  }, [queryCache]);
 
   return (
     <ReactQueryCacheProvider queryCache={queryCache}>
@@ -33,7 +59,7 @@ function App() {
         <ModalProvider>
           <MainMenu />
         </ModalProvider>
-        {loadingApp && <AppLoader />}
+        {loadingApp && <AppLoader isShown={loadingApp} />}
         <Switch>
           <Route exact path="/">
             <Home setLoadingApp={setLoadingApp} />

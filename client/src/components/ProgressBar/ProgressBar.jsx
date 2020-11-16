@@ -4,13 +4,10 @@ import styled from "styled-components";
 
 const ProgressBar = React.forwardRef((props, ref) => {
   const animationProps = useSpring({
-    to: async (next, cancel) => {
-      // await next({ width: "0%", opacity: 1 });
-      await next({ width: "25%", opacity: 1 });
-      await next({ width: "100%", opacity: 0 });
-      await next({ width: "0%", opacity: 0 });
+    to: async (next) => {
+      await next({ width: "100%", opacity: 1 });
     },
-    from: { width: "0%", opacity: 0 },
+    from: { width: "20%", opacity: 0 },
   });
 
   return (
