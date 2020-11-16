@@ -4,7 +4,6 @@ import { useSpring, animated } from "react-spring";
 import Story from "../Story/Story";
 import { StyledStories } from "./StyledStories";
 import { ChevronRight, ChevronLeft } from "react-feather";
-import useUsers from "../../../hooks/useUsers";
 
 function Stories({ users }) {
   const { data, isLoading, isError } = users; // users data

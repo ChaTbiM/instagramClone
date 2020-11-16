@@ -8,7 +8,7 @@ const fetchUsers = async () => {
 };
 
 const useUsers = () => {
-  return useQuery(["users", "home"], fetchUsers, {
+  return useQuery("users", fetchUsers, {
     staleTime: 200000,
     refetchOnWindowFocus: false,
     refetchOnMount: false,

@@ -1,15 +1,18 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 
-function AppLoader({ isShown }) {
-  useEffect(() => {
-    console.log("isShown???", isShown);
-  }, [isShown]);
+function AppLoader() {
   return (
     <Container>
-      <p>🖐</p>
-      <p>🖐🖐🖐</p>
-      <p>🖐</p>
+      <span role="img" aria-label="jsx-a11y/accessible-emoji">
+        🖐
+      </span>
+      <span role="img" aria-label="jsx-a11y/accessible-emoji">
+        🖐🖐🖐
+      </span>
+      <span role="img" aria-label="jsx-a11y/accessible-emoji">
+        🖐
+      </span>
     </Container>
   );
 }
@@ -26,7 +29,7 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  p {
+  span {
     font-size: 100px;
   }
 `;

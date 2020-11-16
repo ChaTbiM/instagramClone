@@ -1,23 +1,9 @@
-import React, { useRef, useState } from "react";
-import { useEffect } from "react";
-import Post from "../Post/Post";
+import React from "react";
 import { StyledPosts } from "./StyledPosts";
-import ProgressBar from "../../ProgressBar/ProgressBar";
+import Post from "../Post/Post";
+
 function Posts({ posts }) {
-  const { data, isError, isLoading, isInitialData, updatedAt } = posts;
-  // const prevUpdatedAt = useRef(updatedAt);
-  // const [pageLoading, setPageLoading] = useState(true);
-  // useEffect(() => {
-  //   if (updatedAt !== prevUpdatedAt.current || isInitialData) {
-  //     // console.log("new data");
-  //     setPageLoading(true);
-  //     // queryCache.setQueryData("homeLoading", true);
-  //   } else {
-  //     setPageLoading(false);
-  //     // queryCache.setQueryData("homeLoading", false);
-  //     // console.log("old Data");
-  //   }
-  // }, [isInitialData, isLoading, updatedAt]);
+  const { data, isError, isLoading } = posts;
 
   if (isLoading) {
     return <span>Loading ....</span>;

@@ -1,8 +1,10 @@
 import React from "react";
+import usePageLoading from "../hooks/usePageLoading";
 import ProgressBar from "../components/ProgressBar/ProgressBar";
 
 function Profile() {
-  return <div style={{ marginTop: "5rem" }}>Welcome to Your profile</div>;
+  const [pageLoading] = usePageLoading();
+  return <div>{pageLoading && <ProgressBar />} Welcome to Your profile</div>;
 }
 
 export default Profile;

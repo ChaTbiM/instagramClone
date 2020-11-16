@@ -1,57 +1,29 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./reset.css";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import styled from "styled-components";
-import Home from "./scenes/Home";
 import MainMenu from "./components/Navigations/MainMenu/MainMenu";
-import Profile from "./scenes/Profile";
 import { ModalProvider } from "./hooks/modalContext";
 import DisclaimerModal from "./components/modals/DisclaimerModal/DisclaimerModal";
-import { makeServer } from "./fakeServer/server";
+// import { makeServer } from "./fakeServer/server";
 import { QueryCache, ReactQueryCacheProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query-devtools";
 import AppLoader from "./scenes/AppLoader";
+import useAppLoading from "./hooks/useAppLoading";
 
-if (process.env.NODE_ENV === "development") {
-  makeServer({ environment: "development" });
-  console.log("base_url", process.env.REACT_APP_BASE_URL);
-}
+import { Home, Profile, Inbox, People } from "./scenes";
+
+// if (process.env.NODE_ENV === "development") {
+//   makeServer({ environment: "development" });
+//   console.log("base_url", process.env.REACT_APP_BASE_URL);
+// }
+
+const queryCache = new QueryCache();
 
 function App() {
-  const [loadingApp, setLoadingApp] = useState(true);
   const [isDisclaimerOpen, setIsDisclaimerOpen] = useState(false);
-
-  const queryCache = new QueryCache();
-
-  const callback = (cache, query) => {
-    const pages = ['"home"', '"test"'];
-
-    if (query && cache.isFetching === 0) {
-      // if (query.queryHash.includes('"home"') && cache.isFetching === 0) {
-      //   return setLoadingApp(false);
-      // }
-      pages.forEach((page) => {
-        if (query.queryHash.includes(page) && cache.isFetching === 0) {
-          return setLoadingApp(false);
-        }
-      });
-    }
-  };
-
-  const unsubscribe = queryCache.subscribe(callback);
-
-  useEffect(() => {
-    return () => {
-      unsubscribe();
-    };
-  }, [unsubscribe]);
-
-  useEffect(() => {
-    if (queryCache.queriesArray.length === 0) {
-      setLoadingApp(false);
-    }
-  }, [queryCache]);
+  const [loadingApp] = useAppLoading(queryCache);
 
   return (
     <ReactQueryCacheProvider queryCache={queryCache}>
@@ -59,12 +31,19 @@ function App() {
         <ModalProvider>
           <MainMenu />
         </ModalProvider>
-        {loadingApp && <AppLoader isShown={loadingApp} />}
+        {loadingApp && <AppLoader />}
+        <div style={{ paddingTop: "6rem" }}></div>
         <Switch>
           <Route exact path="/">
-            <Home setLoadingApp={setLoadingApp} />
+            <Home />
           </Route>
-          <Route exact path="/chatbim">
+          <Route path="/inbox">
+            <Inbox />
+          </Route>
+          <Route path="/explore">
+            <People />
+          </Route>
+          <Route path="/:username">
             <Profile />
           </Route>
         </Switch>

@@ -8,8 +8,7 @@ const getPosts = async () => {
 };
 
 const usePosts = (users) => {
-  return useQuery(["posts", "home"], getPosts, {
-    enabled: users,
+  return useQuery("posts", getPosts, {
     staleTime: 5000,
     refetchOnWindowFocus: false,
     refetchOnMount: false,
