@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
 import ProfilePicture from "../../Profile/ProfilePicture/ProfilePicture";
 import { StyledPost } from "./StyledPost";
 import {
@@ -8,17 +8,29 @@ import {
   MessageCircle,
   MoreHorizontal,
 } from "react-feather";
+import Comment from "./Comment";
+import { Link } from "react-router-dom";
 
 function Post({ post }) {
-  let { image, sincePublished, numberOfLikes, user, comment: comments } = post;
+  let { image, sincePublished, numberOfLikes, user, comments } = post;
+
+  const numberOfComments = useCallback(() => {
+    return comments.length;
+  }, [comments]);
+
   const renderComments = () => {
     return comments.map((comment, index) => {
-      return (
-        <p key={`comment-${index}`} className="post__comment">
-          <span className="post__comment__from">{comment.user.name}</span>
-          <span className="post__comment__content">{comment.text}</span>
-        </p>
-      );
+      if (index === 0 && numberOfComments() >= 3) {
+        return (
+          <Comment comment={comment} key={`comments-${index}`}>
+            <Link to="/p/postid"> read All {numberOfComments()} comments</Link>
+          </Comment>
+        );
+      }
+
+      if (index >= 3 && numberOfComments() >= 3) return null;
+
+      return <Comment comment={comment} key={`comments-${index}`} />;
     });
   };
 
