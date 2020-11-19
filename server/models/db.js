@@ -4,9 +4,7 @@ const path = require("path");
 const db = {};
 
 const DataTypes = Sequelize.DataTypes;
-const sequelize = new Sequelize(
-  "postgres://dzgauoso:qKasODGuSznpNJkYyJ7YzIzmSVOZi98N@suleiman.db.elephantsql.com:5432/dzgauoso"
-);
+const sequelize = new Sequelize(process.env.DB_CONNECTION);
 
 const currentFile = path.basename(__filename);
 
