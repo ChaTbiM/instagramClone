@@ -4,6 +4,10 @@ class Data {
   // randomInt = () => Math.floor(Math.random() * 25);
   // randomIds = [...Array(randomInt())];
 
+  constructor() {
+    this.randomInt = [...Array(faker.random.number({ min: 8, max: 25 }))];
+  }
+
   returnComments = () => {
     const randomInt = [...Array(faker.random.number(10))];
     return randomInt.map((randomId, index) => {
@@ -32,8 +36,7 @@ class Data {
   };
 
   users = () => {
-    const randomInt = [...Array(faker.random.number({ min: 8, max: 25 }))];
-    return randomInt.map((int, index) => {
+    return this.randomInt.map((int, index) => {
       return {
         id: faker.random.uuid(),
         name: faker.name.findName(),
@@ -48,9 +51,7 @@ class Data {
   };
 
   posts = () => {
-    const randomInt = [...Array(faker.random.number({ min: 5, max: 25 }))];
-
-    return randomInt.map((int, index) => {
+    return this.randomInt.map((int, index) => {
       return {
         id: faker.random.uuid(),
         image: `${faker.image.imageUrl(
