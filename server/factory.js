@@ -27,7 +27,7 @@ class Data {
     return randomInt.map((int, index) => {
       return {
         id: faker.random.uuid(),
-        image: `${faker.image.imageUrl(60, 60)}?random${faker.random.number(
+        image: `${faker.image.imageUrl(310, 545)}?random${faker.random.number(
           20
         )}`,
         timer: 60,
@@ -40,6 +40,7 @@ class Data {
       return {
         id: faker.random.uuid(),
         name: faker.name.findName(),
+        userName: faker.internet.userName(),
         avatar: `${faker.image.imageUrl(
           60,
           60,
