@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback } from "react";
 import ProfilePicture from "../../Profile/ProfilePicture/ProfilePicture";
 import { StyledPost } from "./StyledPost";
 import {
@@ -8,7 +8,7 @@ import {
   MessageCircle,
   MoreHorizontal,
 } from "react-feather";
-import Comment from "./Comment";
+import Comment from "../Comment/Comment";
 import { Link } from "react-router-dom";
 
 function Post({ post }) {

@@ -13,11 +13,7 @@ import AppLoader from "./scenes/AppLoader";
 import useAppLoading from "./hooks/useAppLoading";
 
 import { Home, Profile, Inbox, People } from "./scenes";
-
-// if (process.env.NODE_ENV === "development") {
-//   makeServer({ environment: "development" });
-//   console.log("base_url", process.env.REACT_APP_BASE_URL);
-// }
+import StoriesPage from "./scenes/StoriesPage";
 
 const queryCache = new QueryCache();
 
@@ -25,25 +21,35 @@ function App() {
   const [isDisclaimerOpen, setIsDisclaimerOpen] = useState(false);
   const [loadingApp] = useAppLoading(queryCache);
 
+  const [showMainMenu, toggleMainMenu] = useState(true);
+
   return (
     <ReactQueryCacheProvider queryCache={queryCache}>
       <Router>
-        <ModalProvider>
-          <MainMenu />
-        </ModalProvider>
         {loadingApp && <AppLoader />}
-        <div style={{ paddingTop: "6rem" }}></div>
+        <ModalProvider>
+          {showMainMenu && (
+            <>
+              <MainMenu />
+              <div style={{ paddingTop: "6rem" }}></div>
+            </>
+          )}
+        </ModalProvider>
+
         <Switch>
           <Route exact path="/">
             <Home />
           </Route>
-          <Route path="/inbox">
+          <Route exact path="/inbox">
             <Inbox />
           </Route>
-          <Route path="/explore">
+          <Route exact path="/explore">
             <People />
           </Route>
-          <Route path="/:username">
+          <Route exact path="/stories/:userName/:storyId">
+            <StoriesPage toggleMainMenu={toggleMainMenu} />
+          </Route>
+          <Route exact path="/:username">
             <Profile />
           </Route>
         </Switch>

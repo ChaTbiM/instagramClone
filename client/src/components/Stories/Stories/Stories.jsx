@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState } from "react";
 import { useSpring, animated } from "react-spring";
 
 import Story from "../Story/Story";
@@ -14,23 +14,14 @@ function Stories({ users }) {
   let [numberOfStories, setNumberOfStories] = useState(8);
 
   const scrollStepWidth = 320;
-  // const temp = Array.from(Array(15).keys());
-  // const numberOfStories = data.length ? data.length : 8;
+  const renderStoriesFunction = () =>
+    data.map((user, index) => {
+      if (user.stories.length) {
+        return <Story user={user} isStory={true} key={`story-${index}`} />;
+      }
+    });
 
-  const renderStoriesFunction = (users) =>
-    users.map((user, index) => (
-      <Story
-        name={user.name}
-        avatar={user.avatar}
-        isStory={true}
-        key={`story-${index}`}
-      />
-    ));
-
-  const renderStories = useCallback(
-    (users) => renderStoriesFunction(users),
-    []
-  );
+  const renderStories = (users) => renderStoriesFunction(users);
   useEffect(() => {
     if (data) {
       setNumberOfStories(data.length);
@@ -128,7 +119,7 @@ function Stories({ users }) {
         // ref={scrollRef}
         className="storiesList"
       >
-        {renderStories(data)}
+        {renderStories()}
       </AnimatedStories>
     </StyledStories>
   );
