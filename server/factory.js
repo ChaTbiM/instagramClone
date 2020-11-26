@@ -30,7 +30,7 @@ class Data {
         image: `${faker.image.imageUrl(310, 545)}?random${faker.random.number(
           20
         )}`,
-        timer: 60,
+        timer: 20,
       };
     });
   };
