@@ -9,7 +9,7 @@ const fetchUsers = async () => {
 
 const useUsers = () => {
   return useQuery("users", fetchUsers, {
-    staleTime: 200000,
+    staleTime: 5000,
     refetchOnWindowFocus: false,
     refetchOnMount: false,
     notifyOnStatusChange: true,
