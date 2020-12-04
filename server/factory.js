@@ -1,9 +1,6 @@
 const faker = require("faker");
 
 class Data {
-  // randomInt = () => Math.floor(Math.random() * 25);
-  // randomIds = [...Array(randomInt())];
-
   constructor() {
     this.randomInt = [...Array(faker.random.number({ min: 8, max: 25 }))];
   }
@@ -30,7 +27,7 @@ class Data {
         image: `${faker.image.imageUrl(310, 545)}?random${faker.random.number(
           20
         )}`,
-        timer: 20,
+        timer: 5,
       };
     });
   };

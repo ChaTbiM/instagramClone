@@ -28,5 +28,6 @@ Object.keys(models).forEach((model) => {
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
+db.models = sequelize.models;
 
 module.exports = db;

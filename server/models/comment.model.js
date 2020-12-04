@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
       image: DataTypes.TEXT,
     },
     {
-      tableName: "comments",
+      tableName: "comment",
     }
   );
 

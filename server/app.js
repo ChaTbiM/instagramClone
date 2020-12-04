@@ -40,7 +40,13 @@ app.get("/users", (req, res) => {
 });
 
 // sequelize.drop();
-// sequelize.sync({ farce: true });
+// sequelize.sync({ force: true });
+// sequelize.sync();
+
+const testAssociations = require("./models/tests/associationsTest.js");
+
+testAssociations();
+
 app.listen(port, () => {
   console.log(`example app is listening on port: ${port}`);
 });

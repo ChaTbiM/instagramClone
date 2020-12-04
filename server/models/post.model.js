@@ -12,9 +12,11 @@ module.exports = (sequelize, DataTypes) => {
       numberOfLikes: DataTypes.INTEGER,
     },
     {
-      tableName: "posts",
+      tableName: "post",
     }
   );
+
+  const models = sequelize.models;
 
   Post.associate = (models) => {
     Post.belongsTo(models.User, {

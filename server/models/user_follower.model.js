@@ -7,18 +7,21 @@ module.exports = (sequelize, DataTypes) => {
         defaultValue: sequelize.UUIDV4,
         primaryKey: true,
       },
-      name: {
-        type: DataTypes.STRING,
+      followedId: {
+        type: DataTypes.UUID,
+        defaultValue: sequelize.UUIDV4,
         allowNull: false,
       },
-      avatar: DataTypes.STRING,
+      followerId: {
+        type: DataTypes.UUID,
+        defaultValue: sequelize.UUIDV4,
+        allowNull: false,
+      },
     },
     {
-      tableName: "users_followers",
+      tableName: "user_follower",
     }
   );
-
-  const models = sequelize.models;
 
   return UserFollower;
 };

@@ -10,11 +10,11 @@ module.exports = (sequelize, DataTypes) => {
       image: DataTypes.TEXT,
       timer: {
         type: DataTypes.INTEGER,
-        defaultValue: 60,
+        defaultValue: 5,
       },
     },
     {
-      tableName: "stories",
+      tableName: "story",
     }
   );
 };
