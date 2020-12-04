@@ -1,20 +1,19 @@
-import React, { useCallback, useRef, useEffect, useState } from "react";
+import React, { useCallback, useRef, useEffect } from "react";
 import { MoreHorizontal } from "react-feather";
 import { useHistory, useLocation } from "react-router";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import ProfilePicture from "../components/Profile/ProfilePicture/ProfilePicture";
 import { X, ChevronRight, ChevronLeft } from "react-feather";
+import { useQueryCache } from "react-query";
 
-function StoriesPage({ toggleMainMenu }) {
+function StoriesFull({ toggleMainMenu }) {
   let history = useHistory();
   const location = useLocation();
   const { storyIndex, user } = location.state;
   const { stories, avatar } = user;
-  const storyTime = stories[storyIndex.timer];
-  const { timer, setTimer } = useState(storyTime);
-
   const timerRef = useRef();
+  const queryCache = useQueryCache();
 
   const printUserName = useCallback(() => {
     const userName = user.userName;
@@ -36,7 +35,7 @@ function StoriesPage({ toggleMainMenu }) {
         storyIndex: storyIndex + 1,
       },
     };
-  });
+  }, [printUserName, stories, storyIndex, user]);
 
   const prevStoryLink = () => {
     if (storyIndex - 1 >= 0) {
@@ -54,9 +53,10 @@ function StoriesPage({ toggleMainMenu }) {
     if (storyIndex + 1 < stories.length) {
       history.push(nextStoryLink());
     } else {
+      queryCache.invalidateQueries("users", { id: user.id });
       history.push("/");
     }
-  }, [history, nextStoryLink, stories.length, storyIndex]);
+  }, [history, nextStoryLink, queryCache, stories.length, storyIndex, user.id]);
 
   useEffect(() => {
     if (timerRef.current) {
@@ -70,7 +70,7 @@ function StoriesPage({ toggleMainMenu }) {
   }, [nextStory, timerRef]);
 
   return (
-    <StyledStoriesPage timer={timer}>
+    <StyledStoriesFull>
       <div className="left">
         <Link
           className={storyIndex - 1 >= 0 ? "previous" : "hidden"}
@@ -121,11 +121,11 @@ function StoriesPage({ toggleMainMenu }) {
           <ChevronRight />
         </Link>
       </div>
-    </StyledStoriesPage>
+    </StyledStoriesFull>
   );
 }
 
-const StyledStoriesPage = styled.div`
+const StyledStoriesFull = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -178,7 +178,7 @@ const StyledStoriesPage = styled.div`
     height: 100%;
     background: red;
     animation-name: example;
-    animation-duration: ${(props) => (props.timer ? props.timer : 20)}s;
+    animation-duration: 5s;
   }
 
   .more__interaction {
@@ -201,4 +201,4 @@ const StyledStoriesPage = styled.div`
   }
 `;
 
-export default StoriesPage;
+export default StoriesFull;

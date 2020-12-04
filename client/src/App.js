@@ -13,7 +13,7 @@ import AppLoader from "./scenes/AppLoader";
 import useAppLoading from "./hooks/useAppLoading";
 
 import { Home, Profile, Inbox, People } from "./scenes";
-import StoriesFullView from "./scenes/StoriesFullView";
+import StoriesFull from "./scenes/StoriesFull";
 
 const queryCache = new QueryCache();
 
@@ -47,7 +47,7 @@ function App() {
             <People />
           </Route>
           <Route exact path="/stories/:userName/:storyId">
-            <StoriesFullView toggleMainMenu={toggleMainMenu} />
+            <StoriesFull toggleMainMenu={toggleMainMenu} />
           </Route>
           <Route exact path="/:username">
             <Profile />

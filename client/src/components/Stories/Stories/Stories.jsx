@@ -9,7 +9,7 @@ function Stories({ users }) {
   const { data, isLoading, isError } = users; // users data
   let [x, setX] = useState(0);
   let [scrollWidthLimit, setScrollWidthLimit] = useState(0);
-  let [scrollRight, setScrollRight] = useState(true);
+  let [scrollRight, setScrollRight] = useState(false);
   let [scrollLeft, setScrollLeft] = useState(false);
   let [numberOfStories, setNumberOfStories] = useState(8);
 
@@ -41,6 +41,13 @@ function Stories({ users }) {
       },
     }
   );
+
+  useEffect(() => {
+    console.log(data, "users data");
+    if (data && data.length >= 9) {
+      setScrollRight(true);
+    }
+  }, [data]);
 
   useEffect(() => {
     // if (scrollRef) {
