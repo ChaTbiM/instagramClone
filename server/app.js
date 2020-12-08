@@ -46,18 +46,17 @@ app.get("/users", (req, res) => {
   res.status(200).json(users());
 });
 
-// sequelize.drop();
-// sequelize.sync({ force: true });
-sequelize.drop();
+const testDatabase = require("./testRelationships");
 
-app.listen(port, () => {
+app.listen(port, async () => {
   console.log(`example app is listening on port: ${port}`);
-  sequelize
-    .authenticate()
-    .then(() => {
-      console.log("Connection has been established successfully.");
-    })
-    .catch((err) => {
-      console.error("Unable to connect to the database:", err);
-    });
+
+  try {
+    await sequelize.authenticate();
+  } catch (error) {
+    console.log("error connecting to the database !");
+  }
+  // await sequelize.drop();
+  // await sequelize.sync({ force: true });
+  testDatabase();
 });

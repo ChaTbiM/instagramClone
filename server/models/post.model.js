@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       id: {
         type: DataTypes.UUID,
-        defaultValue: sequelize.UUIDV4,
+        defaultValue: DataTypes.UUIDV1,
         primaryKey: true,
       },
       image: DataTypes.STRING,
@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
   Post.associate = (models) => {
     Post.belongsTo(models.User, {
       foreignKey: {
-        name: "userId",
+        name: "user_id",
         type: DataTypes.UUID,
       },
     });

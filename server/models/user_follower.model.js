@@ -2,17 +2,12 @@ module.exports = (sequelize, DataTypes) => {
   const UserFollower = sequelize.define(
     "UserFollower",
     {
-      id: {
-        type: DataTypes.UUID,
-        defaultValue: sequelize.UUIDV4,
-        primaryKey: true,
-      },
-      followedId: {
+      followed_id: {
         type: DataTypes.UUID,
         defaultValue: sequelize.UUIDV4,
         allowNull: false,
       },
-      followerId: {
+      follower_id: {
         type: DataTypes.UUID,
         defaultValue: sequelize.UUIDV4,
         allowNull: false,
