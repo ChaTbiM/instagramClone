@@ -8,29 +8,32 @@ require("dotenv").config({ path: `.env.${env}` });
 const app = express();
 const port = process.env.PORT || 5000;
 
-const { userRoutes, postRoutes, storyRoutes } = require("./routes/index.js");
-const { sequelize } = require("./models/db.js");
-
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+const {
+  userRoutes,
+  postRoutes,
+  storyRoutes,
+  authRoutes,
+} = require("./routes/index.js");
+const { sequelize } = require("./models/db.js");
+
 //routes
-// app.get("/", (req, res) => {
-//   res.send("Hello WOrld");
-// });
 // app.use("/api/user", userRoutes);
 // app.use("/api/post", postRoutes);
 // app.use("/api/story", storyRoutes);
+app.use("/api", authRoutes);
 
 // Provisional API
 app.get("/", (req, res) => {
   res.status(200).send("hello world");
 });
 
-app.get("/env", (req, res) => {
-  res.status(200).send(process.env.DB_USERNAME + " working");
-});
+// app.get("/env", (req, res) => {
+//   res.status(200).send(process.env.DB_USERNAME + " working");
+// });
 
 const { posts, users } = require("./factory");
 app.get("/posts", (req, res) => {
@@ -46,8 +49,6 @@ app.get("/users", (req, res) => {
   res.status(200).json(users());
 });
 
-const testDatabase = require("./testRelationships");
-
 app.listen(port, async () => {
   console.log(`example app is listening on port: ${port}`);
 
@@ -58,5 +59,4 @@ app.listen(port, async () => {
   }
   // await sequelize.drop();
   // await sequelize.sync({ force: true });
-  testDatabase();
 });
